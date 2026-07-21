@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raúl Santamaría Domínguez — Desarrollador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#101820;
+    --bg-panel:#161f29;
+    --bg-panel-2:#1c2733;
+    --line:#26323d;
+    --text:#e9eef2;
+    --muted:#8fa1ac;
+    --cyan:#4fc8da;
+    --cyan-dim:#2b5f68;
+    --amber:#d79b4a;
+    --amber-dim:#6e5231;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--cyan);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:6vh 8vw;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-20%; right:-10%;
+    width:640px; height:640px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    box-shadow:0 0 0 60px transparent, inset 0 0 0 1px transparent;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:-20%; right:-10%;
+    width:640px; height:640px;
+    margin:80px;
+    border-radius:50%;
+    border:1px solid var(--line);
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1fr 260px;
+    gap:60px;
+    align-items:center;
+    width:100%;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--amber);
+    letter-spacing:.18em;
+    font-size:.78rem;
+    margin:0 0 18px;
+  }
+  .hero-name{
+    font-size:clamp(2.4rem,6vw,4.6rem);
+    font-weight:600;
+    letter-spacing:-.01em;
+    line-height:1.02;
+    filter: blur(var(--blur,7px));
+    transition:filter .05s linear;
+  }
+  .hero-role{
+    position:relative;
+    height:1.9em;
+    margin-top:22px;
+    font-size:clamp(1.05rem,2vw,1.4rem);
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--muted);
+  }
+  .role{
+    position:absolute; left:0; top:0;
+    transition:opacity .08s linear;
+    white-space:nowrap;
+  }
+  .role-before{color:var(--muted);}
+  .role-after{color:var(--cyan);}
+  .phoropter{
+    margin-top:44px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    max-width:460px;
+  }
+  .phoropter-tick{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.85rem;
+    color:var(--muted);
+    width:14px;
+    text-align:center;
+  }
+  input[type=range]{
+    -webkit-appearance:none;
+    appearance:none;
+    flex:1;
+    height:1px;
+    background:var(--line);
+    outline:none;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:16px; height:16px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--cyan);
+    cursor:pointer;
+    margin-top:0;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:16px; height:16px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--cyan);
+    cursor:pointer;
+  }
+  .hero-caption{
+    margin-top:16px;
+    font-size:.82rem;
+    color:var(--muted);
+    font-style:italic;
+    max-width:440px;
+  }
+  .hero-photo-wrap{
+    justify-self:center;
+    width:220px; height:220px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 0 0 10px var(--bg), 0 0 0 11px var(--line);
+  }
+  .hero-photo{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(.15);}
+  .hero-contact{
+    position:relative; z-index:2;
+    margin-top:56px;
+    display:flex; gap:28px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.82rem;
+    color:var(--muted);
+  }
+  .hero-contact span{color:var(--text);}
+
+  /* ---------- SECTIONS ---------- */
+  main{max-width:920px; margin:0 auto; padding:0 8vw;}
+  section{padding:80px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:36px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--amber);
+    font-size:.85rem;
+  }
+  .section-title{font-size:1.5rem; font-weight:600;}
+  .lede{
+    color:var(--muted);
+    max-width:640px;
+    font-size:1.02rem;
+  }
+
+  /* profile */
+  .profile-text{max-width:680px; color:var(--text); font-size:1.05rem;}
+  .profile-text strong{color:var(--cyan); font-weight:500;}
+
+  /* timeline */
+  .timeline{position:relative; padding-left:28px;}
+  .timeline::before{
+    content:"";
+    position:absolute; left:5px; top:6px; bottom:6px;
+    width:1px; background:var(--line);
+  }
+  .tl-item{position:relative; padding-bottom:40px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute; left:-28px; top:6px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--bg); border:1px solid var(--cyan);
+  }
+  .tl-item.current::before{background:var(--cyan);}
+  .tl-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.78rem;
+    color:var(--amber);
+    letter-spacing:.03em;
+  }
+  .tl-role{font-size:1.15rem; font-weight:600; margin-top:6px;}
+  .tl-org{color:var(--muted); font-size:.95rem; margin-top:2px;}
+  .tl-desc{margin-top:10px; color:var(--text); opacity:.85; max-width:620px; font-size:.97rem;}
+
+  /* skills */
+  .skill-groups{display:grid; grid-template-columns:1fr 1fr; gap:32px 40px;}
+  .skill-group h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.82rem;
+    color:var(--amber);
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+    font-weight:500;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.82rem;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--text);
+    background:var(--bg-panel);
+  }
+  .chip b{color:var(--cyan); font-weight:500;}
+
+  /* languages - trial lens gauge */
+  .lang-list{display:flex; flex-direction:column; gap:26px; max-width:520px;}
+  .lang-row{display:grid; grid-template-columns:140px 1fr; align-items:center; gap:18px;}
+  .lang-name{font-weight:500;}
+  .gauge{position:relative; height:2px; background:var(--line);}
+  .gauge-fill{position:absolute; left:0; top:0; height:2px; background:var(--cyan);}
+  .gauge-marks{display:flex; justify-content:space-between; margin-top:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--muted);}
+
+  /* hobbies */
+  .hobby-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:28px;}
+  .hobby{display:flex; flex-direction:column; gap:10px;}
+  .hobby svg{width:30px; height:30px; stroke:var(--cyan); fill:none; stroke-width:1.3;}
+  .hobby-name{font-size:.92rem; color:var(--text);}
+
+  /* education */
+  .edu-list{display:flex; flex-direction:column; gap:26px;}
+  .edu-item{display:grid; grid-template-columns:110px 1fr; gap:18px;}
+  .edu-year{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:.8rem; padding-top:2px;}
+  .edu-title{font-weight:600; font-size:1.02rem;}
+  .edu-org{color:var(--muted); font-size:.92rem; margin-top:2px;}
+
+  /* footer / contact slip */
+  footer{
+    max-width:920px; margin:0 auto 100px; padding:0 8vw;
+  }
+  .slip{
+    border:1px dashed var(--line);
+    padding:40px;
+    position:relative;
+  }
+  .slip::before{
+    content:"Rx";
+    position:absolute; top:-14px; left:36px;
+    background:var(--bg);
+    padding:0 10px;
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--amber);
+    font-size:.9rem;
+  }
+  .slip-name{font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:600;}
+  .slip-line{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    margin-top:22px;
+    font-family:'IBM Plex Mono',monospace; font-size:.88rem;
+    color:var(--muted);
+  }
+  .slip-line span{color:var(--text);}
+  .slip-sign{
+    margin-top:34px;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.75rem;
+    color:var(--muted);
+    display:flex; justify-content:space-between;
+  }
+
+  @media(max-width:760px){
+    .hero-grid{grid-template-columns:1fr; gap:36px;}
+    .hero-photo-wrap{width:150px; height:150px; justify-self:start;}
+    .skill-groups{grid-template-columns:1fr;}
+    .edu-item{grid-template-columns:80px 1fr;}
+    main, footer{padding:0 6vw;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">RX · VALLADOLID, ESPAÑA</p>
+      <h1 class="hero-name" id="heroName">RAÚL SANTAMARÍA<br>DOMÍNGUEZ</h1>
+      <div class="hero-role">
+        <span class="role role-before" id="roleBefore">Óptico&#8209;Optometrista</span>
+        <span class="role role-after" id="roleAfter" style="opacity:0">Desarrollador de software</span>
+      </div>
+      <div class="phoropter">
+        <span class="phoropter-tick mono">1</span>
+        <input type="range" id="focusSlider" min="0" max="100" value="18" aria-label="Desliza para enfocar">
+        <span class="phoropter-tick mono">2</span>
+      </div>
+      <p class="hero-caption">Desliza para enfocar — la pregunta que repitió miles de veces en cabina ahora aplicada a su propia carrera.</p>
+      <div class="hero-contact">
+        <div>Tel. <span>696 766 337</span></div>
+        <div>Email <span>raulsantamariadominguez@gmail.com</span></div>
+        <div>Permiso <span>Categoría B</span></div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="raul.jpg" class="hero-photo" alt="Retrato de Raúl Santamaría Domínguez">
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="perfil">
+    <div class="section-head">
+      <span class="section-num mono">01</span>
+      <h2 class="section-title">Perfil</h2>
+    </div>
+    <p class="profile-text">
+      Diez años de <strong>optometría clínica</strong> enseñan una cosa por encima de todo: la precisión no es opcional, es el trabajo. Graduar una vista, ajustar una lentilla o detectar una pérdida auditiva exige método, calma y un ojo entrenado para el detalle mínimo que cambia todo el resultado.
+    </p>
+    <p class="profile-text" style="margin-top:16px;">
+      Ese mismo enfoque —analítico, meticuloso, cómodo en entornos técnicos exigentes— es el que ahora aplica al <strong>desarrollo de software</strong>. Un cambio de instrumento, no de mentalidad: donde antes ajustaba dioptrías, hoy depura código, integra datos y diseña sistemas, con el mismo compromiso por aprender y hacerlo bien.
+    </p>
+  </section>
+
+  <section id="experiencia">
+    <div class="section-head">
+      <span class="section-num mono">02</span>
+      <h2 class="section-title">Experiencia profesional</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item current">
+        <div class="tl-date mono">MAR 2026 — JUN 2026</div>
+        <div class="tl-role">Desarrollador · Prácticas curriculares</div>
+        <div class="tl-org">Vaelsys</div>
+        <div class="tl-desc">Diseño y desarrollo desde cero de una aplicación de gestión para sistemas IoT, cubriendo todo el ciclo: arquitectura, implementación y pruebas.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date mono">JUN 2023 — MAR 2024</div>
+        <div class="tl-role">Óptico-Optometrista</div>
+        <div class="tl-org">Visionlab SL</div>
+        <div class="tl-desc">Graduaciones ópticas de precisión para la correcta adaptación de lentes correctoras y exámenes audiológicos para la detección de pérdidas auditivas.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date mono">MAR 2023 — JUN 2023</div>
+        <div class="tl-role">Óptico-Optometrista</div>
+        <div class="tl-org">Óptica Zorrilla 51 SL</div>
+        <div class="tl-desc">Exámenes oculares y evaluaciones de salud visual, prescripción y ajuste de lentes y lentillas adaptadas a cada caso.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date mono">NOV 2016 — MAR 2023</div>
+        <div class="tl-role">Óptico-Optometrista</div>
+        <div class="tl-org">Grand Vision Spain / Óptica2000</div>
+        <div class="tl-desc">Pruebas visuales y exámenes audiológicos, gestión de inventario y participación activa en campañas de marketing físicas y online, contribuyendo a la satisfacción del cliente.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-num mono">03</span>
+      <h2 class="section-title">Conocimientos en programación</h2>
+    </div>
+    <div class="skill-groups">
+
+      <div class="skill-group">
+        <h3>Lenguajes</h3>
+        <div class="chips">
+          <span class="chip"><b>Java</b> — integración de datos, POO</span>
+          <span class="chip">Kotlin</span>
+          <span class="chip"><b>Python</b> — scripting, backend</span>
+          <span class="chip"><b>C#</b> — Unity</span>
+          <span class="chip">JavaScript / TypeScript</span>
+          <span class="chip">SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Bases de datos y persistencia</h3>
+        <div class="chips">
+          <span class="chip"><b>PostgreSQL</b> — con asyncpg</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">Hibernate — ORM</span>
+          <span class="chip">eXist-db — XML</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Procesamiento e integración de datos</h3>
+        <div class="chips">
+          <span class="chip">SAX / DOM</span>
+          <span class="chip">Apache POI</span>
+          <span class="chip">OpenCSV</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Marcado y estilos</h3>
+        <div class="chips">
+          <span class="chip">XML · HTML · CSS</span>
+          <span class="chip">XPath / XQuery</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Frameworks y desarrollo móvil/backend</h3>
+        <div class="chips">
+          <span class="chip">React Native + Expo</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Unity</span>
+          <span class="chip">Android Studio</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>ERP / Sistemas de gestión</h3>
+        <div class="chips">
+          <span class="chip">Dynamics NAV / Navision</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="educacion">
+    <div class="section-head">
+      <span class="section-num mono">04</span>
+      <h2 class="section-title">Educación</h2>
+    </div>
+    <div class="edu-list">
+
+      <div class="edu-item">
+        <div class="edu-year mono">2024–2026</div>
+        <div>
+          <div class="edu-title">CFGS en Desarrollo de Aplicaciones Multiplataforma</div>
+          <div class="edu-org">IES Julián Marías, Valladolid</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year mono">2022</div>
+        <div>
+          <div class="edu-title">Máster en Contactología Avanzada</div>
+          <div class="edu-org">Universitat de València</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year mono">2017–2019</div>
+        <div>
+          <div class="edu-title">CFGS en Audiología Protésica</div>
+          <div class="edu-org">Lyceum Formación, Valladolid</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year mono">2012–2016</div>
+        <div>
+          <div class="edu-title">Grado en Óptica y Optometría</div>
+          <div class="edu-org">Universidad de Valladolid</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="idiomas">
+    <div class="section-head">
+      <span class="section-num mono">05</span>
+      <h2 class="section-title">Idiomas</h2>
+    </div>
+    <div class="lang-list">
+
+      <div class="lang-row">
+        <div class="lang-name">Español</div>
+        <div>
+          <div class="gauge"><div class="gauge-fill" style="width:100%"></div></div>
+          <div class="gauge-marks"><span>—</span><span>Nativo</span></div>
+        </div>
+      </div>
+
+      <div class="lang-row">
+        <div class="lang-name">Inglés</div>
+        <div>
+          <div class="gauge"><div class="gauge-fill" style="width:80%"></div></div>
+          <div class="gauge-marks"><span>—</span><span>Avanzado</span></div>
+        </div>
+      </div>
+
+      <div class="lang-row">
+        <div class="lang-name">Portugués</div>
+        <div>
+          <div class="gauge"><div class="gauge-fill" style="width:30%"></div></div>
+          <div class="gauge-marks"><span>—</span><span>Principiante</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="aficiones">
+    <div class="section-head">
+      <span class="section-num mono">06</span>
+      <h2 class="section-title">Aficiones</h2>
+    </div>
+    <div class="hobby-grid">
+
+      <div class="hobby">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="8" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/><circle cx="12" cy="12" r="1"/></svg>
+        <div class="hobby-name">Juegos de mesa</div>
+      </div>
+
+      <div class="hobby">
+        <svg viewBox="0 0 24 24"><path d="M12 2 L22 12 L12 22 L2 12 Z"/><path d="M12 2 L12 22 M2 12 L22 12"/></svg>
+        <div class="hobby-name">Origami</div>
+      </div>
+
+      <div class="hobby">
+        <svg viewBox="0 0 24 24"><path d="M4 4 h9 a3 3 0 0 1 3 3 v13 h-9 a3 3 0 0 1 -3 -3 Z"/><path d="M13 4 v16"/></svg>
+        <div class="hobby-name">Lectura</div>
+      </div>
+
+      <div class="hobby">
+        <svg viewBox="0 0 24 24"><path d="M4 20 L14 10 M14 10 L21 3 L21 6 L16 11 M14 10 L16 12"/><circle cx="5.5" cy="18.5" r="2"/></svg>
+        <div class="hobby-name">Pintura de miniaturas</div>
+      </div>
+
+      <div class="hobby">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12 h18 M12 3 c3 3.5 3 14.5 0 18 M12 3 c-3 3.5 -3 14.5 0 18"/></svg>
+        <div class="hobby-name">Viajar y otras culturas</div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="slip">
+    <div class="slip-name">Raúl Santamaría Domínguez</div>
+    <div class="slip-line">
+      <div>Valladolid, España</div>
+      <div>696 766 337</div>
+      <div>raulsantamariadominguez@gmail.com</div>
+    </div>
+    <div class="slip-sign">
+      <span>Disponible para incorporación</span>
+      <span>Válido indefinidamente</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const slider = document.getElementById('focusSlider');
+  const name = document.getElementById('heroName');
+  const before = document.getElementById('roleBefore');
+  const after = document.getElementById('roleAfter');
+
+  function update(v){
+    const t = v/100;
+    const blur = (1 - t) * 7;
+    name.style.setProperty('--blur', blur.toFixed(2) + 'px');
+    before.style.opacity = Math.max(0, 1 - t*1.3);
+    after.style.opacity = Math.min(1, t*1.3);
+  }
+  slider.addEventListener('input', e => update(parseFloat(e.target.value)));
+  update(parseFloat(slider.value));
+</script>
+
+</body>
+</html>
