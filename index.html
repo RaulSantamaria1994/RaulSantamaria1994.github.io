@@ -3,690 +3,948 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raúl Santamaría Domínguez — Desarrollador</title>
+<title>Raúl Santamaría — Desarrollador de aplicaciones multiplataforma</title>
+<meta name="description" content="Portfolio de Raúl Santamaría Domínguez, desarrollador de aplicaciones multiplataforma en Valladolid. Proyectos full-stack con FastAPI, React Native, PostgreSQL y tiempo real.">
+<meta name="author" content="Raúl Santamaría Domínguez">
+<meta name="theme-color" content="#0d141c">
+<link rel="canonical" href="https://raulsantamaria1994.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raúl Santamaría — Desarrollador de aplicaciones multiplataforma">
+<meta property="og:description" content="Proyectos full-stack con FastAPI, React Native, PostgreSQL y tiempo real. Diez años de precisión clínica, ahora aplicados al software.">
+<meta property="og:url" content="https://raulsantamaria1994.github.io/">
+<meta property="og:image" content="https://raulsantamaria1994.github.io/raul.jpg">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d141c'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='monospace' font-size='14' font-weight='700' fill='%2352d3e8'%3ERS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Raúl Santamaría Domínguez",
+  "jobTitle":"Desarrollador de aplicaciones multiplataforma",
+  "address":{"@type":"PostalAddress","addressLocality":"Valladolid","addressCountry":"ES"},
+  "email":"mailto:raulsantamariadominguez@gmail.com",
+  "url":"https://raulsantamaria1994.github.io/",
+  "sameAs":["https://github.com/RaulSantamaria1994"]
+}
+</script>
 <style>
   :root{
     --bg:#0d141c;
     --bg-alt:#111a23;
-    --bg-panel:#182029;
-    --line:#28353f;
+    --bg-panel:#161f28;
+    --bg-panel-2:#1b2530;
+    --line:#26333e;
+    --line-strong:#344452;
     --text:#eef2f5;
+    --text-soft:#c9d3da;
     --muted:#8fa1ac;
     --cyan:#52d3e8;
-    --cyan-soft:rgba(82,211,232,.12);
+    --cyan-soft:rgba(82,211,232,.10);
     --cyan-soft-2:rgba(82,211,232,.28);
     --amber:#e6a95c;
-    --amber-soft:rgba(230,169,92,.14);
+    --amber-soft:rgba(230,169,92,.12);
     --amber-soft-2:rgba(230,169,92,.30);
     --violet:#a98ee6;
-    --violet-soft:rgba(169,142,230,.14);
-    --radius:3px;
-    --sidebar-w:340px;
+    --violet-soft:rgba(169,142,230,.12);
+    --violet-soft-2:rgba(169,142,230,.30);
+    --green:#6fd39b;
+    --radius:10px;
+    --maxw:1120px;
+    --nav-h:64px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-h) + 16px);}
   body{
     margin:0;
     background:var(--bg);
     color:var(--text);
-    font-family:'Inter',sans-serif;
+    font-family:'Inter',system-ui,sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    position:relative;
   }
   body::before{
     content:"";
-    position:fixed; inset:0;
-    z-index:0;
-    pointer-events:none;
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
     background:
-      radial-gradient(650px 500px at 88% -6%, var(--cyan-soft), transparent 60%),
-      radial-gradient(600px 480px at -6% 30%, var(--amber-soft), transparent 60%),
-      radial-gradient(700px 560px at 60% 95%, var(--violet-soft), transparent 60%),
-      radial-gradient(circle, var(--line) 1px, transparent 1px);
-    background-size:auto, auto, auto, 26px 26px;
-    background-repeat:no-repeat, no-repeat, no-repeat, repeat;
-    opacity:.9;
+      radial-gradient(700px 520px at 92% -8%, var(--cyan-soft), transparent 60%),
+      radial-gradient(620px 480px at -8% 38%, var(--amber-soft), transparent 60%),
+      radial-gradient(circle, rgba(52,68,82,.55) 1px, transparent 1px);
+    background-size:auto, auto, 28px 28px;
+    background-repeat:no-repeat, no-repeat, repeat;
   }
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0; line-height:1.15;}
+  p{margin:0;}
+  a{color:var(--cyan); text-underline-offset:3px;}
   .mono{font-family:'IBM Plex Mono',monospace;}
-  a{color:var(--cyan);}
+  :focus-visible{outline:2px solid var(--cyan); outline-offset:3px; border-radius:4px;}
+  .container{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .skip{position:absolute; left:-999px; top:8px; background:var(--cyan); color:var(--bg); padding:8px 14px; border-radius:6px; z-index:100;}
+  .skip:focus{left:8px;}
 
-  /* ---------- LAYOUT ---------- */
-  .layout{
-    position:relative; z-index:1;
-    display:grid;
-    grid-template-columns:var(--sidebar-w) 1fr;
-    min-height:100vh;
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    height:var(--nav-h);
+    background:rgba(13,20,28,.78);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease;
   }
+  .nav.scrolled{border-bottom-color:var(--line);}
+  .nav .container{height:100%; display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .brand{
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.92rem;
+    color:var(--text); text-decoration:none; display:flex; align-items:center; gap:10px;
+  }
+  .brand-mark{
+    width:30px; height:30px; border-radius:7px; display:grid; place-items:center;
+    background:var(--cyan-soft); border:1px solid var(--cyan-soft-2); color:var(--cyan); font-size:.78rem;
+  }
+  .nav-links{display:flex; align-items:center; gap:4px;}
+  .nav-links a{
+    font-family:'IBM Plex Mono',monospace; font-size:.8rem;
+    color:var(--muted); text-decoration:none;
+    padding:8px 12px; border-radius:6px;
+    transition:color .15s ease, background .15s ease;
+  }
+  .nav-links a:hover{color:var(--text); background:var(--bg-panel);}
+  .nav-links a.active{color:var(--cyan);}
+  .nav-links a.nav-cta{color:var(--bg); background:var(--cyan); font-weight:600; margin-left:8px;}
+  .nav-links a.nav-cta:hover{background:#7ae0f0;}
+  .nav-toggle{
+    display:none; background:none; border:1px solid var(--line); color:var(--text);
+    width:40px; height:40px; border-radius:8px; cursor:pointer; align-items:center; justify-content:center;
+  }
+  .nav-toggle svg{width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.8;}
 
-  /* ---------- SIDEBAR ---------- */
-  .sidebar{
-    position:sticky; top:0; align-self:start;
-    height:100vh;
-    overflow-y:auto;
-    padding:44px 32px;
-    border-right:1px solid var(--line);
-    display:flex; flex-direction:column;
-    gap:28px;
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:'IBM Plex Mono',monospace; font-size:.85rem; font-weight:500;
+    padding:12px 20px; border-radius:8px; text-decoration:none;
+    border:1px solid var(--line-strong); color:var(--text); background:var(--bg-panel);
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
   }
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    color:var(--amber);
-    letter-spacing:.14em;
-    font-size:.72rem;
-    margin:0;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+  .btn:hover{transform:translateY(-2px); border-color:var(--cyan-soft-2);}
+  .btn-primary{background:var(--cyan); color:var(--bg); border-color:var(--cyan); font-weight:600;}
+  .btn-primary:hover{background:#7ae0f0; border-color:#7ae0f0;}
+  .btn svg{width:17px; height:17px; flex-shrink:0;}
+  .icon-stroke{fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 72px;}
+  .hero-grid{display:grid; grid-template-columns:1fr auto; gap:64px; align-items:center;}
+  .status{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--green);
+    padding:6px 12px; border-radius:20px; border:1px solid rgba(111,211,155,.3); background:rgba(111,211,155,.08);
   }
-  .eyebrow::before{
-    content:"";
-    width:6px; height:6px; border-radius:50%;
-    background:var(--cyan);
-    box-shadow:0 0 0 3px var(--cyan-soft);
+  .status-dot{width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 0 0 rgba(111,211,155,.6); animation:pulse 2.2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(111,211,155,.55);} 70%{box-shadow:0 0 0 8px rgba(111,211,155,0);} 100%{box-shadow:0 0 0 0 rgba(111,211,155,0);}}
+  .hero h1{font-size:clamp(2.4rem, 5.6vw, 4rem); font-weight:700; letter-spacing:-.025em; margin-top:22px;}
+  .hero-role{
+    position:relative; height:1.6em; margin-top:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:clamp(1rem, 2.2vw, 1.25rem);
   }
-  .side-photo-wrap{
-    position:relative;
-    width:112px; height:112px;
-  }
-  .side-photo-wrap::before{
-    content:"";
-    position:absolute; inset:-7px;
-    border-radius:50%;
-    background:conic-gradient(from 0deg, var(--cyan), var(--violet), var(--amber), var(--cyan));
-  }
-  .side-photo-wrap::after{
-    content:"";
-    position:absolute; inset:-2px;
-    border-radius:50%;
-    background:var(--bg);
-  }
-  .side-photo-inner{
-    position:absolute; inset:5px;
-    border-radius:50%;
-    overflow:hidden;
-    z-index:2;
-  }
-  .side-photo{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(.1) contrast(1.05);}
-  .side-name{
-    font-size:1.55rem;
-    font-weight:600;
-    line-height:1.15;
-    letter-spacing:-.01em;
-    margin-top:-6px;
-  }
-  .side-role{
-    position:relative;
-    height:1.7em;
-    font-size:.92rem;
-    font-family:'IBM Plex Mono',monospace;
-  }
-  .role{position:absolute; left:0; top:0; transition:opacity .08s linear; white-space:nowrap;}
+  .role{position:absolute; left:0; top:0; white-space:nowrap; transition:opacity .08s linear;}
   .role-before{color:var(--amber);}
   .role-after{color:var(--cyan);}
-  .phoropter{display:flex; align-items:center; gap:12px;}
-  .phoropter-tick{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--muted); width:12px; text-align:center;}
+  .hero-lead{margin-top:22px; max-width:600px; font-size:1.1rem; color:var(--text-soft);}
+  .hero-lead strong{color:var(--text); font-weight:600;}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;}
+  .phoropter{display:flex; align-items:center; gap:12px; margin-top:36px; max-width:340px;}
+  .phoropter-tick{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--muted);}
   input[type=range]{
     -webkit-appearance:none; appearance:none;
-    flex:1; height:2px;
+    flex:1; height:2px; margin:0;
     background:linear-gradient(90deg, var(--amber-soft-2), var(--cyan-soft-2));
     outline:none; border-radius:2px;
   }
   input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none;
-    width:15px; height:15px; border-radius:50%;
-    background:var(--bg); border:2px solid var(--cyan);
-    box-shadow:0 0 10px var(--cyan-soft-2); cursor:pointer;
+    -webkit-appearance:none; width:16px; height:16px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--cyan); box-shadow:0 0 10px var(--cyan-soft-2); cursor:pointer;
   }
   input[type=range]::-moz-range-thumb{
-    width:15px; height:15px; border-radius:50%;
-    background:var(--bg); border:2px solid var(--cyan);
-    box-shadow:0 0 10px var(--cyan-soft-2); cursor:pointer;
+    width:16px; height:16px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--cyan); box-shadow:0 0 10px var(--cyan-soft-2); cursor:pointer;
   }
-  .side-caption{font-size:.74rem; color:var(--muted); font-style:italic; line-height:1.5;}
+  .phoropter-caption{font-size:.75rem; color:var(--muted); font-style:italic; margin-top:8px;}
 
-  .side-nav{display:flex; flex-direction:column;}
-  .side-nav a{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:.82rem;
-    color:var(--muted);
-    text-decoration:none;
-    padding:9px 0;
-    border-top:1px solid var(--line);
-    display:flex; align-items:center; gap:10px;
-    transition:color .15s ease, padding-left .15s ease;
+  .photo-wrap{position:relative; width:240px; height:240px;}
+  .photo-wrap::before{
+    content:""; position:absolute; inset:-8px; border-radius:50%;
+    background:conic-gradient(from 210deg, var(--cyan), var(--violet), var(--amber), var(--cyan));
   }
-  .side-nav a:last-child{border-bottom:1px solid var(--line);}
-  .side-nav a .num{color:var(--line); font-size:.72rem; transition:color .15s ease;}
-  .side-nav a:hover{color:var(--text); padding-left:4px;}
-  .side-nav a.active{color:var(--cyan);}
-  .side-nav a.active .num{color:var(--cyan);}
-
-  .side-spacer{flex:1;}
-
-  .side-contact{
-    display:flex; flex-direction:column; gap:9px;
-    font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--muted);
-    padding-top:20px; border-top:1px solid var(--line);
+  .photo-wrap::after{content:""; position:absolute; inset:-3px; border-radius:50%; background:var(--bg);}
+  .photo-inner{position:absolute; inset:4px; border-radius:50%; overflow:hidden; z-index:1;}
+  .photo-inner img{width:100%; height:100%; object-fit:cover; display:block;}
+  .photo-tag{
+    position:absolute; z-index:2; right:-18px; bottom:18px;
+    font-family:'IBM Plex Mono',monospace; font-size:.72rem;
+    background:var(--bg-panel-2); border:1px solid var(--line-strong); color:var(--text-soft);
+    padding:6px 10px; border-radius:8px; white-space:nowrap;
   }
-  .side-contact span{color:var(--text); display:block; margin-top:1px;}
+  .photo-tag b{color:var(--cyan); font-weight:500;}
 
-  /* ---------- CONTENT ---------- */
-  .content{min-width:0; position:relative; z-index:1;}
-  .band{border-bottom:1px solid var(--line);}
-  .band:last-of-type{border-bottom:none;}
-  .band-tint{background:linear-gradient(180deg, var(--bg-alt), var(--bg));}
-  .section-inner{padding:64px 5vw;}
-  .section-head{display:flex; align-items:center; gap:16px; margin-bottom:32px;}
-  .section-num{
-    font-family:'IBM Plex Mono',monospace; font-size:.8rem;
-    width:34px; height:34px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--line); flex-shrink:0;
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:72px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  .stat{background:var(--bg-alt); padding:22px 24px;}
+  .stat-num{font-family:'Space Grotesk',sans-serif; font-size:1.7rem; font-weight:600; color:var(--text);}
+  .stat-num span{color:var(--cyan);}
+  .stat-label{font-size:.82rem; color:var(--muted); margin-top:2px;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:88px 0; border-top:1px solid var(--line);}
+  .section-head{margin-bottom:44px; max-width:680px;}
+  .section-kicker{font-family:'IBM Plex Mono',monospace; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber);}
+  .section-title{font-size:clamp(1.7rem, 3.4vw, 2.3rem); font-weight:600; letter-spacing:-.015em; margin-top:10px;}
+  .section-sub{color:var(--muted); margin-top:12px; font-size:1.02rem;}
+
+  /* ---------- PROJECTS ---------- */
+  .projects{display:grid; gap:28px;}
+  .project{
+    display:grid; grid-template-columns:1.45fr 1fr;
+    border:1px solid var(--line); border-radius:14px; overflow:hidden;
+    background:var(--bg-panel);
+    transition:border-color .2s ease, transform .2s ease;
   }
-  .section-num.c-cyan{color:var(--cyan); border-color:var(--cyan-soft-2); background:var(--cyan-soft);}
-  .section-num.c-amber{color:var(--amber); border-color:var(--amber-soft-2); background:var(--amber-soft);}
-  .section-num.c-violet{color:var(--violet); border-color:var(--violet-soft); background:var(--violet-soft);}
-  .section-title{font-size:1.5rem; font-weight:600;}
+  .project:hover{border-color:var(--line-strong);}
+  .project-main{padding:36px;}
+  .project-side{padding:36px; background:var(--bg-alt); border-left:1px solid var(--line); display:flex; flex-direction:column; gap:22px;}
+  .project-top{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
+  .project-icon{width:46px; height:46px; border-radius:11px; display:grid; place-items:center; flex-shrink:0;}
+  .project-icon svg{width:24px; height:24px;}
+  .p-cyan .project-icon{background:var(--cyan-soft); color:var(--cyan); border:1px solid var(--cyan-soft-2);}
+  .p-amber .project-icon{background:var(--amber-soft); color:var(--amber); border:1px solid var(--amber-soft-2);}
+  .p-violet .project-icon{background:var(--violet-soft); color:var(--violet); border:1px solid var(--violet-soft-2);}
+  .project-title{font-size:1.5rem; font-weight:600;}
+  .project-type{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--muted); margin-top:2px;}
+  .project-desc{margin-top:20px; color:var(--text-soft); font-size:1rem;}
+  .project-points{list-style:none; padding:0; margin:20px 0 0; display:grid; gap:10px;}
+  .project-points li{position:relative; padding-left:22px; color:var(--text-soft); font-size:.95rem;}
+  .project-points li::before{content:""; position:absolute; left:2px; top:.62em; width:8px; height:2px; border-radius:2px; background:var(--cyan);}
+  .p-amber .project-points li::before{background:var(--amber);}
+  .p-violet .project-points li::before{background:var(--violet);}
+  .project-points strong{color:var(--text); font-weight:600;}
+  .project-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .project-links .btn{padding:10px 16px; font-size:.8rem;}
+  .private-note{font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--muted); display:inline-flex; align-items:center; gap:8px; padding:10px 0;}
+  .private-note svg{width:15px; height:15px;}
 
-  /* profile */
-  .profile-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:start;}
-  .profile-text{color:var(--text); font-size:1.05rem;}
-  .profile-text strong.c-cyan{color:var(--cyan); font-weight:500;}
-  .profile-text strong.c-amber{color:var(--amber); font-weight:500;}
-  .profile-stats{display:grid; gap:18px;}
-  .stat-card{border:1px solid var(--line); border-radius:8px; padding:20px; background:var(--bg-panel);}
-  .stat-num{font-family:'Space Grotesk',sans-serif; font-size:1.8rem; font-weight:600; color:var(--cyan);}
-  .stat-label{font-size:.82rem; color:var(--muted); margin-top:4px;}
+  .side-label{font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:10px;}
+  .meta-list{display:grid; gap:8px; font-size:.88rem;}
+  .meta-row{display:flex; justify-content:space-between; gap:12px; border-bottom:1px dashed var(--line); padding-bottom:8px;}
+  .meta-row:last-child{border-bottom:none; padding-bottom:0;}
+  .meta-row dt{color:var(--muted);}
+  .meta-row dd{margin:0; color:var(--text); text-align:right;}
+  .tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:.74rem;
+    padding:4px 9px; border-radius:5px;
+    border:1px solid var(--line-strong); color:var(--text-soft); background:var(--bg-panel);
+  }
+  .arch{font-family:'IBM Plex Mono',monospace; font-size:.74rem; color:var(--muted); line-height:1.9; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:14px 16px; overflow-x:auto; white-space:pre; margin:0;}
+  .arch .c{color:var(--cyan);} .arch .a{color:var(--amber);} .arch .v{color:var(--violet);}
 
-  /* timeline */
-  .timeline{position:relative;}
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{display:grid; gap:14px;}
   .tl-item{
-    position:relative;
-    display:grid; grid-template-columns:1fr; gap:6px;
-    padding:22px 22px; margin-bottom:14px;
-    border-radius:8px; border-left:2px solid var(--amber-soft-2);
-    background:var(--bg-panel);
-    transition:border-color .15s ease;
+    display:grid; grid-template-columns:200px 1fr; gap:28px;
+    padding:26px 28px; border-radius:var(--radius);
+    border:1px solid var(--line); background:var(--bg-panel);
   }
-  .tl-item:last-child{margin-bottom:0;}
-  .tl-item.dev{border-left-color:var(--cyan-soft-2);}
-  .tl-date{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--amber); letter-spacing:.03em;}
+  .tl-date{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--amber); padding-top:4px;}
   .tl-item.dev .tl-date{color:var(--cyan);}
-  .tl-role{font-size:1.15rem; font-weight:600;}
-  .tl-org{color:var(--muted); font-size:.95rem;}
-  .tl-desc{margin-top:4px; color:var(--text); opacity:.85; font-size:.97rem; max-width:640px;}
-  .tl-tag{
-    display:inline-block; margin-top:8px; width:fit-content;
-    font-family:'IBM Plex Mono',monospace; font-size:.68rem;
-    letter-spacing:.06em; text-transform:uppercase;
-    padding:3px 9px; border-radius:20px;
+  .tl-role{font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:600;}
+  .tl-org{color:var(--muted); font-size:.93rem;}
+  .tl-desc{margin-top:10px; color:var(--text-soft); font-size:.97rem; max-width:680px;}
+  .tl-item .tags{margin-top:14px;}
+  .tl-item.dev{border-color:var(--cyan-soft-2); background:linear-gradient(135deg, rgba(82,211,232,.06), var(--bg-panel) 55%);}
+  .tl-group{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin:22px 0 4px;}
+  .transfer{
+    margin-top:28px; padding:24px 28px; border-radius:var(--radius);
+    border:1px dashed var(--line-strong); display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
   }
-  .tl-tag.dev{color:var(--cyan); background:var(--cyan-soft); border:1px solid var(--cyan-soft-2);}
-  .tl-tag.optica{color:var(--amber); background:var(--amber-soft); border:1px solid var(--amber-soft-2);}
-  @media(min-width:1000px){
-    .tl-item{grid-template-columns:190px 1fr; align-items:start; gap:24px;}
-    .tl-date{padding-top:2px;}
-  }
+  .transfer h3{font-size:.95rem; font-weight:600;}
+  .transfer p{font-size:.88rem; color:var(--muted); margin-top:6px;}
+  .transfer-head{grid-column:1/-1; font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--amber); letter-spacing:.08em; text-transform:uppercase;}
 
-  /* skills */
-  .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px 36px;}
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .skill-group{border:1px solid var(--line); border-radius:var(--radius); padding:24px; background:var(--bg-panel);}
   .skill-group h3{
-    font-family:'IBM Plex Mono',monospace; font-size:.82rem; letter-spacing:.05em;
-    text-transform:uppercase; margin-bottom:14px; font-weight:500;
-    padding-left:12px; border-left:2px solid var(--line);
+    font-family:'IBM Plex Mono',monospace; font-size:.78rem; letter-spacing:.06em;
+    text-transform:uppercase; font-weight:500; margin-bottom:16px; display:flex; align-items:center; gap:10px;
   }
-  .skill-group:nth-child(3n+1) h3{color:var(--cyan); border-color:var(--cyan-soft-2);}
-  .skill-group:nth-child(3n+2) h3{color:var(--amber); border-color:var(--amber-soft-2);}
-  .skill-group:nth-child(3n+3) h3{color:var(--violet); border-color:var(--violet-soft);}
-  .chips{display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{
-    font-family:'IBM Plex Mono',monospace; font-size:.82rem; padding:6px 12px;
-    border:1px solid var(--line); border-radius:var(--radius);
-    color:var(--text); background:var(--bg-panel);
-    transition:border-color .15s ease, transform .15s ease;
-  }
-  .chip:hover{border-color:var(--cyan-soft-2); transform:translateY(-2px);}
-  .chip b{color:var(--cyan); font-weight:500;}
+  .skill-group h3::before{content:""; width:8px; height:8px; border-radius:2px; background:currentColor;}
+  .skill-group:nth-child(3n+1) h3{color:var(--cyan);}
+  .skill-group:nth-child(3n+2) h3{color:var(--amber);}
+  .skill-group:nth-child(3n+3) h3{color:var(--violet);}
+  .skill-group .tags{gap:8px;}
+  .skill-group .tag{font-size:.8rem; padding:6px 11px;}
+  .tag.strong{border-color:var(--cyan-soft-2); color:var(--text); background:var(--cyan-soft);}
+  .legend{display:flex; gap:20px; margin-top:20px; font-family:'IBM Plex Mono',monospace; font-size:.74rem; color:var(--muted);}
+  .legend span{display:inline-flex; align-items:center; gap:8px;}
+  .legend i{width:12px; height:12px; border-radius:3px; border:1px solid var(--line-strong); background:var(--bg-panel);}
+  .legend i.strong{border-color:var(--cyan-soft-2); background:var(--cyan-soft);}
 
-  /* education */
-  .edu-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;}
-  .edu-item{
-    display:grid; grid-template-columns:auto 1fr; gap:16px;
-    padding:20px; border-radius:8px; border:1px solid var(--line);
-    background:var(--bg-panel); align-items:start;
-  }
-  .edu-year{font-family:'IBM Plex Mono',monospace; font-size:.78rem; white-space:nowrap; padding-top:2px;}
+  /* ---------- EDUCATION ---------- */
+  .edu-grid{display:grid; grid-template-columns:1.6fr 1fr; gap:28px; align-items:start;}
+  .edu-list{display:grid; gap:12px;}
+  .edu-item{display:grid; grid-template-columns:96px 1fr; gap:18px; padding:20px 22px; border-radius:var(--radius); border:1px solid var(--line); background:var(--bg-panel);}
+  .edu-year{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--amber); padding-top:2px;}
+  .edu-item.dev{border-color:var(--cyan-soft-2);}
   .edu-item.dev .edu-year{color:var(--cyan);}
-  .edu-item:not(.dev) .edu-year{color:var(--amber);}
-  .edu-title{font-weight:600; font-size:1rem;}
+  .edu-title{font-weight:600;}
   .edu-org{color:var(--muted); font-size:.9rem; margin-top:2px;}
+  .lang-box{border:1px solid var(--line); border-radius:var(--radius); padding:24px; background:var(--bg-panel); display:grid; gap:20px;}
+  .lang-box h3{font-family:'IBM Plex Mono',monospace; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; font-weight:500; color:var(--violet);}
+  .lang-head{display:flex; justify-content:space-between; font-size:.93rem; margin-bottom:8px;}
+  .lang-head span:last-child{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--muted);}
+  .gauge{height:4px; background:var(--line); border-radius:2px; overflow:hidden;}
+  .gauge-fill{height:100%; border-radius:2px; background:linear-gradient(90deg, var(--amber), var(--cyan));}
 
-  /* languages */
-  .lang-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;}
-  .lang-card{border:1px solid var(--line); border-radius:8px; padding:20px; background:var(--bg-panel);}
-  .lang-name{font-weight:500; margin-bottom:14px;}
-  .gauge{position:relative; height:3px; background:var(--line); border-radius:2px;}
-  .gauge-fill{position:absolute; left:0; top:0; height:3px; border-radius:2px; background:linear-gradient(90deg, var(--amber), var(--cyan));}
-  .gauge-marks{display:flex; justify-content:space-between; margin-top:8px;
-    font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--muted);}
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start;}
+  .about-text p{color:var(--text-soft); font-size:1.05rem;}
+  .about-text p + p{margin-top:16px;}
+  .about-text strong.c-cyan{color:var(--cyan); font-weight:500;}
+  .about-text strong.c-amber{color:var(--amber); font-weight:500;}
+  .hobbies{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+  .hobby{display:inline-flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-soft); padding:8px 13px; border:1px solid var(--line); border-radius:20px; background:var(--bg-panel);}
+  .hobby svg{width:16px; height:16px; stroke:var(--amber); fill:none; stroke-width:1.5;}
 
-  /* hobbies */
-  .hobby-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:20px;}
-  .hobby{
-    display:flex; flex-direction:column; gap:14px;
-    padding:22px; border-radius:8px; border:1px solid var(--line);
-    background:var(--bg-panel);
-    transition:transform .15s ease, border-color .15s ease;
+  /* ---------- CONTACT ---------- */
+  .contact-card{
+    border:1px solid var(--line); border-radius:16px; padding:56px;
+    background:
+      radial-gradient(500px 260px at 100% 0%, var(--cyan-soft), transparent 70%),
+      var(--bg-panel);
+    display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center;
   }
-  .hobby:hover{transform:translateY(-3px);}
-  .hobby-badge{width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
-  .hobby:nth-child(5n+1) .hobby-badge{background:var(--cyan-soft);} .hobby:nth-child(5n+1) svg{stroke:var(--cyan);} .hobby:nth-child(5n+1):hover{border-color:var(--cyan-soft-2);}
-  .hobby:nth-child(5n+2) .hobby-badge{background:var(--amber-soft);} .hobby:nth-child(5n+2) svg{stroke:var(--amber);} .hobby:nth-child(5n+2):hover{border-color:var(--amber-soft-2);}
-  .hobby:nth-child(5n+3) .hobby-badge{background:var(--violet-soft);} .hobby:nth-child(5n+3) svg{stroke:var(--violet);} .hobby:nth-child(5n+3):hover{border-color:var(--violet-soft);}
-  .hobby:nth-child(5n+4) .hobby-badge{background:var(--cyan-soft);} .hobby:nth-child(5n+4) svg{stroke:var(--cyan);} .hobby:nth-child(5n+4):hover{border-color:var(--cyan-soft-2);}
-  .hobby:nth-child(5n+5) .hobby-badge{background:var(--amber-soft);} .hobby:nth-child(5n+5) svg{stroke:var(--amber);} .hobby:nth-child(5n+5):hover{border-color:var(--amber-soft-2);}
-  .hobby svg{width:22px; height:22px; fill:none; stroke-width:1.4;}
-  .hobby-name{font-size:.92rem; color:var(--text);}
-
-  /* footer */
-  footer{padding:64px 5vw 90px; position:relative; z-index:1;}
-  .slip{border:1px dashed var(--line); background:var(--bg-panel); padding:36px; position:relative; border-radius:8px; max-width:640px;}
-  .slip::before{
-    content:"Rx"; position:absolute; top:-15px; left:32px;
-    background:var(--amber); color:var(--bg); padding:3px 12px; border-radius:20px;
-    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.82rem;
+  .contact-card h2{font-size:clamp(1.7rem, 3.4vw, 2.3rem); font-weight:600; letter-spacing:-.015em;}
+  .contact-card p{color:var(--text-soft); margin-top:14px;}
+  .contact-list{display:grid; gap:10px;}
+  .contact-item{
+    display:flex; align-items:center; gap:14px; text-decoration:none;
+    padding:14px 18px; border-radius:10px; border:1px solid var(--line); background:var(--bg-alt);
+    color:var(--text); transition:border-color .15s ease, transform .15s ease;
   }
-  .slip-name{font-family:'Space Grotesk',sans-serif; font-size:1.25rem; font-weight:600;}
-  .slip-line{display:flex; flex-direction:column; gap:8px; margin-top:20px;
-    font-family:'IBM Plex Mono',monospace; font-size:.85rem; color:var(--muted);}
-  .slip-line span{color:var(--cyan);}
-  .slip-sign{margin-top:28px; border-top:1px solid var(--line); padding-top:14px;
-    font-family:'IBM Plex Mono',monospace; font-size:.73rem; color:var(--muted);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  a.contact-item:hover{border-color:var(--cyan-soft-2); transform:translateX(3px);}
+  .contact-item svg{width:20px; height:20px; color:var(--cyan); flex-shrink:0;}
+  .contact-item small{display:block; font-family:'IBM Plex Mono',monospace; font-size:.7rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase;}
+  .contact-item span{font-size:.93rem; word-break:break-all;}
 
-  /* ---------- MOBILE ---------- */
-  @media(max-width:900px){
-    .layout{grid-template-columns:1fr;}
-    .sidebar{
-      position:relative; height:auto; top:auto;
-      border-right:none; border-bottom:1px solid var(--line);
-      flex-direction:column; padding:36px 6vw;
+  footer{padding:36px 0 48px; color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:.75rem;}
+  footer .container{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .status-dot{animation:none;}
+    .btn:hover, a.contact-item:hover{transform:none;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .project{grid-template-columns:1fr;}
+    .project-side{border-left:none; border-top:1px solid var(--line);}
+    .skill-groups{grid-template-columns:repeat(2,1fr);}
+    .edu-grid, .about-grid, .contact-card{grid-template-columns:1fr;}
+    .about-grid{gap:32px;}
+  }
+  @media (max-width:820px){
+    .nav-toggle{display:inline-flex;}
+    .nav-links{
+      display:none; position:absolute; top:var(--nav-h); left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:2px;
+      background:var(--bg); border-bottom:1px solid var(--line); padding:12px 16px 18px;
     }
-    .side-nav{display:none;}
-    .side-spacer{display:none;}
-    .profile-grid{grid-template-columns:1fr;}
-    .section-inner{padding:48px 6vw;}
-    footer{padding:48px 6vw 70px;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px;}
+    .nav-links a.nav-cta{margin:8px 0 0; text-align:center;}
+    .hero{padding:48px 0 56px;}
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-photo{order:-1;}
+    .photo-wrap{width:150px; height:150px;}
+    .photo-tag{display:none;}
+    .stats{grid-template-columns:repeat(2,1fr); margin-top:48px;}
+    section{padding:64px 0;}
+    .tl-item{grid-template-columns:1fr; gap:6px; padding:22px;}
+    .transfer{grid-template-columns:1fr;}
+    .skill-groups{grid-template-columns:1fr;}
+    .project-main, .project-side{padding:24px;}
+    .contact-card{padding:28px;}
+  }
+  @media (max-width:480px){
+    .container{padding:0 16px;}
+    .hero-role{height:3.2em;}
+    .role{white-space:normal;}
+    .edu-item{grid-template-columns:1fr; gap:4px;}
+  }
+  @media print{
+    body::before, .nav, .phoropter, .phoropter-caption, .hero-actions{display:none;}
+    .reveal{opacity:1; transform:none;}
   }
 </style>
 </head>
 <body>
+<a class="skip" href="#proyectos">Saltar a los proyectos</a>
 
-<div class="layout">
-
-  <aside class="sidebar">
-    <p class="eyebrow">RX · VALLADOLID</p>
-
-    <div class="side-photo-wrap">
-      <div class="side-photo-inner">
-        <img src="raul.jpg" class="side-photo" alt="Retrato de Raúl Santamaría Domínguez">
-      </div>
-    </div>
-
-    <div>
-      <h1 class="side-name">Raúl Santamaría Domínguez</h1>
-      <div class="side-role">
-        <span class="role role-before" id="roleBefore">Óptico&#8209;Optometrista</span>
-        <span class="role role-after" id="roleAfter" style="opacity:0">Desarrollador de software</span>
-      </div>
-    </div>
-
-    <div>
-      <div class="phoropter">
-        <span class="phoropter-tick mono">1</span>
-        <input type="range" id="focusSlider" min="0" max="100" value="18" aria-label="Desliza para enfocar">
-        <span class="phoropter-tick mono">2</span>
-      </div>
-      <p class="side-caption">Desliza para enfocar — la pregunta de cabina, aplicada a su propia carrera.</p>
-    </div>
-
-    <nav class="side-nav">
-      <a href="#perfil"><span class="num">01</span> Perfil</a>
-      <a href="#experiencia"><span class="num">02</span> Experiencia</a>
-      <a href="#skills"><span class="num">03</span> Programación</a>
-      <a href="#educacion"><span class="num">04</span> Educación</a>
-      <a href="#idiomas"><span class="num">05</span> Idiomas</a>
-      <a href="#aficiones"><span class="num">06</span> Aficiones</a>
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="brand" href="#inicio" aria-label="Inicio">
+      <span class="brand-mark">RS</span>
+      <span>raul.santamaria</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#stack">Stack</a>
+      <a href="#formacion">Formación</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
     </nav>
+  </div>
+</header>
 
-    <div class="side-spacer"></div>
+<main>
 
-    <div class="side-contact">
-      <div>Tel. <span>696 766 337</span></div>
-      <div>Email <span>raulsantamariadominguez@gmail.com</span></div>
-      <div>Permiso <span>Categoría B</span></div>
-    </div>
-  </aside>
-
-  <main class="content">
-
-    <div class="band" id="perfil">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="section-num mono c-cyan">01</span>
-          <h2 class="section-title">Perfil</h2>
+  <!-- ============ HERO ============ -->
+  <div class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="status"><span class="status-dot"></span>Disponible para incorporación · Valladolid / remoto</span>
+          <h1>Raúl Santamaría<br>Domínguez</h1>
+          <div class="hero-role" aria-live="polite">
+            <span class="role role-before" id="roleBefore">Óptico&#8209;Optometrista</span>
+            <span class="role role-after" id="roleAfter" style="opacity:0">Desarrollador de aplicaciones multiplataforma</span>
+          </div>
+          <p class="hero-lead">
+            Construyo <strong>aplicaciones móviles y backends</strong> de principio a fin: APIs con FastAPI, apps con React Native, bases de datos PostgreSQL y comunicación en tiempo real. Antes, diez años de optometría clínica me enseñaron que <strong>la precisión no es opcional</strong>.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#proyectos">
+              Ver proyectos
+              <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+            <a class="btn" href="https://github.com/RaulSantamaria1994" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              GitHub
+            </a>
+            <a class="btn" href="#contacto">
+              <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              Contactar
+            </a>
+          </div>
+          <div class="phoropter">
+            <span class="phoropter-tick">1</span>
+            <input type="range" id="focusSlider" min="0" max="100" value="100" aria-label="Desliza para enfocar: de óptico-optometrista a desarrollador">
+            <span class="phoropter-tick">2</span>
+          </div>
+          <p class="phoropter-caption">¿Mejor con la 1 o con la 2? — la pregunta de cabina, aplicada a mi propia carrera.</p>
         </div>
-        <div class="profile-grid">
+        <div class="hero-photo">
+          <div class="photo-wrap">
+            <div class="photo-inner">
+              <img src="raul.jpg" alt="Retrato de Raúl Santamaría Domínguez" width="450" height="600">
+            </div>
+            <div class="photo-tag"><b>CFGS DAM</b> · 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-num">3<span>+</span></div><div class="stat-label">aplicaciones full-stack construidas</div></div>
+        <div class="stat"><div class="stat-num">Py<span>·</span>TS</div><div class="stat-label">FastAPI y React Native como stack principal</div></div>
+        <div class="stat"><div class="stat-num">10</div><div class="stat-label">años de trato directo con clientes y pacientes</div></div>
+        <div class="stat"><div class="stat-num">ES<span>·</span>EN</div><div class="stat-label">nativo · inglés avanzado</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROYECTOS ============ -->
+  <section id="proyectos">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">01 · Proyectos</div>
+        <h2 class="section-title">Lo que he construido</h2>
+        <p class="section-sub">Aplicaciones completas, de la base de datos a la pantalla del móvil. Cada una resuelve un problema real y está pensada para mantenerse y desplegarse, no solo para funcionar en local.</p>
+      </div>
+
+      <div class="projects">
+
+        <!-- RPG -->
+        <article class="project p-cyan reveal">
+          <div class="project-main">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg>
+              </div>
+              <div>
+                <h3 class="project-title">RPG narrativo cooperativo</h3>
+                <div class="project-type">App móvil multijugador en tiempo real</div>
+              </div>
+            </div>
+            <p class="project-desc">
+              Un juego de rol de mesa llevado al móvil. Un <em>máster</em> crea la sala, los jugadores se unen desde su teléfono, eligen personaje y avanzan juntos por historias ramificadas, con decisiones, combates y pistas sincronizados al instante para todo el grupo.
+            </p>
+            <ul class="project-points">
+              <li><strong>Tiempo real con WebSockets</strong>: estado de sala compartido, gestión de conexiones y de jugadores ausentes.</li>
+              <li><strong>Motor de juego propio</strong> en Python: tiradas d20, iniciativa, combate reactivo, hechizos, votación grupal, inventario común e intercambio de objetos.</li>
+              <li><strong>Historias como datos</strong>: tres aventuras definidas en JSON y cargadas como <em>seeds</em>, separando contenido narrativo de lógica.</li>
+              <li><strong>Calidad</strong>: más de 20 suites de tests con pytest (incluida concurrencia en WebSockets), migraciones con Alembic y limpieza automática de salas abandonadas.</li>
+              <li><strong>CI/CD</strong>: workflow de GitHub Actions que compila el APK de Android a demanda.</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn" href="https://github.com/RaulSantamaria1994/RPG" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" class="icon-stroke"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+                Ver código
+              </a>
+            </div>
+          </div>
+          <aside class="project-side">
+            <div>
+              <div class="side-label">Ficha</div>
+              <dl class="meta-list">
+                <div class="meta-row"><dt>Rol</dt><dd>Desarrollo full-stack</dd></div>
+                <div class="meta-row"><dt>Plataforma</dt><dd>Android (Expo)</dd></div>
+                <div class="meta-row"><dt>Estado</dt><dd>En desarrollo activo</dd></div>
+              </dl>
+            </div>
+            <div>
+              <div class="side-label">Arquitectura</div>
+<pre class="arch"><span class="c">React Native + Expo</span>  (Zustand)
+      │  REST  ·  WebSocket
+<span class="a">FastAPI</span>  ─  motor de juego
+      │  SQLAlchemy · Alembic
+<span class="v">PostgreSQL</span></pre>
+            </div>
+            <div>
+              <div class="side-label">Stack</div>
+              <div class="tags">
+                <span class="tag">TypeScript</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Zustand</span>
+                <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">WebSockets</span><span class="tag">SQLAlchemy</span>
+                <span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">pytest</span><span class="tag">GitHub Actions</span>
+              </div>
+            </div>
+          </aside>
+        </article>
+
+        <!-- TheGoodWay -->
+        <article class="project p-amber reveal">
+          <div class="project-main">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <div>
+                <h3 class="project-title">TheGoodWay</h3>
+                <div class="project-type">App de nutrición y actividad física con IA · proyecto en equipo</div>
+              </div>
+            </div>
+            <p class="project-desc">
+              Planificador de alimentación saludable: a partir del perfil del usuario calcula su objetivo calórico, genera un menú semanal con IA, crea la lista de la compra y lleva el balance entre lo que come y el ejercicio que hace.
+            </p>
+            <ul class="project-points">
+              <li><strong>Menús semanales generados con IA</strong> (Google Gemini) ajustados al objetivo calórico calculado para cada usuario.</li>
+              <li><strong>Base de alimentos real</strong>: integración con Open Food Facts y búsqueda asistida por IA de alimentos y deportes.</li>
+              <li><strong>Funcionalidad completa</strong>: onboarding, recetas, lista de la compra, registro de ejercicio y balance calórico diario.</li>
+              <li><strong>Backend asíncrono</strong> con FastAPI, SQLAlchemy y asyncpg; autenticación con JWT y contraseñas cifradas con bcrypt.</li>
+              <li><strong>Despliegue en servidor propio</strong> con Docker (imágenes multiarquitectura con buildx), Compose y proxy inverso.</li>
+            </ul>
+            <div class="project-links">
+              <span class="private-note">
+                <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                Repositorio privado · demo y código disponibles bajo petición
+              </span>
+            </div>
+          </div>
+          <aside class="project-side">
+            <div>
+              <div class="side-label">Ficha</div>
+              <dl class="meta-list">
+                <div class="meta-row"><dt>Rol</dt><dd>Desarrollo full-stack</dd></div>
+                <div class="meta-row"><dt>Formato</dt><dd>Proyecto en equipo</dd></div>
+                <div class="meta-row"><dt>Despliegue</dt><dd>Docker · servidor propio</dd></div>
+              </dl>
+            </div>
+            <div>
+              <div class="side-label">Arquitectura</div>
+<pre class="arch"><span class="c">Expo Router</span>  (React Native)
+      │  REST + JWT
+<span class="a">FastAPI async</span>  ─  Gemini API
+      │  asyncpg          Open Food Facts
+<span class="v">PostgreSQL</span>  ·  Docker</pre>
+            </div>
+            <div>
+              <div class="side-label">Stack</div>
+              <div class="tags">
+                <span class="tag">TypeScript</span><span class="tag">React Native</span><span class="tag">Expo Router</span>
+                <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">asyncpg</span><span class="tag">PostgreSQL</span>
+                <span class="tag">Gemini API</span><span class="tag">JWT</span><span class="tag">Docker</span>
+              </div>
+            </div>
+          </aside>
+        </article>
+
+        <!-- Vaelsys -->
+        <article class="project p-violet reveal">
+          <div class="project-main">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/></svg>
+              </div>
+              <div>
+                <h3 class="project-title">Gestión de sistemas IoT</h3>
+                <div class="project-type">Proyecto profesional · Vaelsys · 2026</div>
+              </div>
+            </div>
+            <p class="project-desc">
+              Durante mis prácticas en Vaelsys diseñé y desarrollé desde cero una aplicación de gestión para sus sistemas IoT, cubriendo el ciclo completo de un producto real dentro de un equipo profesional.
+            </p>
+            <ul class="project-points">
+              <li><strong>Arquitectura</strong>: análisis de requisitos con el equipo y diseño de la solución desde una página en blanco.</li>
+              <li><strong>Implementación</strong> de la aplicación y su integración con los dispositivos y servicios existentes.</li>
+              <li><strong>Pruebas</strong> y entrega dentro de los plazos de las prácticas.</li>
+            </ul>
+            <div class="project-links">
+              <span class="private-note">
+                <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                Código propiedad de la empresa · detalles en entrevista
+              </span>
+            </div>
+          </div>
+          <aside class="project-side">
+            <div>
+              <div class="side-label">Ficha</div>
+              <dl class="meta-list">
+                <div class="meta-row"><dt>Rol</dt><dd>Desarrollador en prácticas</dd></div>
+                <div class="meta-row"><dt>Periodo</dt><dd>Mar — Jun 2026</dd></div>
+                <div class="meta-row"><dt>Alcance</dt><dd>Diseño → pruebas</dd></div>
+              </dl>
+            </div>
+          </aside>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCIA ============ -->
+  <section id="experiencia">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">02 · Experiencia</div>
+        <h2 class="section-title">Trayectoria profesional</h2>
+        <p class="section-sub">Un cambio de instrumento, no de mentalidad: de ajustar dioptrías a depurar código.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item dev reveal">
+          <div class="tl-date">MAR 2026 — JUN 2026</div>
           <div>
-            <p class="profile-text">
-              Diez años de <strong class="c-amber">optometría clínica</strong> enseñan una cosa por encima de todo: la precisión no es opcional, es el trabajo. Graduar una vista, ajustar una lentilla o detectar una pérdida auditiva exige método, calma y un ojo entrenado para el detalle mínimo que cambia todo el resultado.
-            </p>
-            <p class="profile-text" style="margin-top:16px;">
-              Ese mismo enfoque —analítico, meticuloso, cómodo en entornos técnicos exigentes— es el que ahora aplica al <strong class="c-cyan">desarrollo de software</strong>. Un cambio de instrumento, no de mentalidad: donde antes ajustaba dioptrías, hoy depura código, integra datos y diseña sistemas, con el mismo compromiso por aprender y hacerlo bien.
-            </p>
+            <div class="tl-role">Desarrollador · Prácticas curriculares</div>
+            <div class="tl-org">Vaelsys · Valladolid</div>
+            <p class="tl-desc">Diseño y desarrollo desde cero de una aplicación de gestión para sistemas IoT, cubriendo todo el ciclo: arquitectura, implementación y pruebas.</p>
+            <div class="tags"><span class="tag">Desarrollo de software</span><span class="tag">IoT</span></div>
           </div>
-          <div class="profile-stats">
-            <div class="stat-card">
-              <div class="stat-num">10</div>
-              <div class="stat-label">años en óptica y optometría clínica</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-num">2024</div>
-              <div class="stat-label">inicio del salto al desarrollo de software</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-num">B</div>
-              <div class="stat-label">permiso de conducir</div>
-            </div>
+        </div>
+
+        <div class="tl-group reveal">Óptica y optometría · 2016 — 2024</div>
+
+        <div class="tl-item reveal">
+          <div class="tl-date">JUN 2023 — MAR 2024</div>
+          <div>
+            <div class="tl-role">Óptico-Optometrista</div>
+            <div class="tl-org">Visionlab SL</div>
+            <p class="tl-desc">Graduaciones ópticas de precisión para la adaptación de lentes correctoras y exámenes audiológicos para la detección de pérdidas auditivas.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-date">MAR 2023 — JUN 2023</div>
+          <div>
+            <div class="tl-role">Óptico-Optometrista</div>
+            <div class="tl-org">Óptica Zorrilla 51 SL</div>
+            <p class="tl-desc">Exámenes oculares y evaluaciones de salud visual, prescripción y adaptación de lentes y lentillas a cada caso.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-date">NOV 2016 — MAR 2023</div>
+          <div>
+            <div class="tl-role">Óptico-Optometrista</div>
+            <div class="tl-org">GrandVision Spain / Óptica2000</div>
+            <p class="tl-desc">Pruebas visuales y audiológicas, gestión de inventario y participación en campañas de marketing físicas y online, con foco en la satisfacción del cliente.</p>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="band band-tint" id="experiencia">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="section-num mono c-amber">02</span>
-          <h2 class="section-title">Experiencia profesional</h2>
+      <div class="transfer reveal">
+        <div class="transfer-head">Lo que traigo de la clínica al código</div>
+        <div>
+          <h3>Método y precisión</h3>
+          <p>Una graduación es un proceso de diagnóstico sistemático: hipótesis, prueba, ajuste. Igual que depurar.</p>
         </div>
-        <div class="timeline">
-
-          <div class="tl-item dev">
-            <div class="tl-date mono">MAR 2026 — JUN 2026</div>
-            <div>
-              <div class="tl-role">Desarrollador · Prácticas curriculares</div>
-              <div class="tl-org">Vaelsys</div>
-              <div class="tl-desc">Diseño y desarrollo desde cero de una aplicación de gestión para sistemas IoT, cubriendo todo el ciclo: arquitectura, implementación y pruebas.</div>
-              <span class="tl-tag dev">Desarrollo</span>
-            </div>
-          </div>
-
-          <div class="tl-item">
-            <div class="tl-date mono">JUN 2023 — MAR 2024</div>
-            <div>
-              <div class="tl-role">Óptico-Optometrista</div>
-              <div class="tl-org">Visionlab SL</div>
-              <div class="tl-desc">Graduaciones ópticas de precisión para la correcta adaptación de lentes correctoras y exámenes audiológicos para la detección de pérdidas auditivas.</div>
-              <span class="tl-tag optica">Optometría</span>
-            </div>
-          </div>
-
-          <div class="tl-item">
-            <div class="tl-date mono">MAR 2023 — JUN 2023</div>
-            <div>
-              <div class="tl-role">Óptico-Optometrista</div>
-              <div class="tl-org">Óptica Zorrilla 51 SL</div>
-              <div class="tl-desc">Exámenes oculares y evaluaciones de salud visual, prescripción y ajuste de lentes y lentillas adaptadas a cada caso.</div>
-              <span class="tl-tag optica">Optometría</span>
-            </div>
-          </div>
-
-          <div class="tl-item">
-            <div class="tl-date mono">NOV 2016 — MAR 2023</div>
-            <div>
-              <div class="tl-role">Óptico-Optometrista</div>
-              <div class="tl-org">Grand Vision Spain / Óptica2000</div>
-              <div class="tl-desc">Pruebas visuales y exámenes audiológicos, gestión de inventario y participación activa en campañas de marketing físicas y online, contribuyendo a la satisfacción del cliente.</div>
-              <span class="tl-tag optica">Optometría</span>
-            </div>
-          </div>
-
+        <div>
+          <h3>Foco en el usuario</h3>
+          <p>Años explicando cosas técnicas a personas no técnicas, con paciencia y claridad.</p>
+        </div>
+        <div>
+          <h3>Responsabilidad</h3>
+          <p>Trabajar donde un error tiene consecuencias reales enseña a revisar dos veces y a documentar.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="band" id="skills">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="section-num mono c-violet">03</span>
-          <h2 class="section-title">Conocimientos en programación</h2>
+  <!-- ============ STACK ============ -->
+  <section id="stack">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">03 · Stack</div>
+        <h2 class="section-title">Tecnologías</h2>
+        <p class="section-sub">Destacadas las que uso a diario en mis proyectos; el resto, trabajadas durante el ciclo formativo.</p>
+      </div>
+
+      <div class="skill-groups">
+        <div class="skill-group reveal">
+          <h3>Móvil y frontend</h3>
+          <div class="tags">
+            <span class="tag strong">React Native</span><span class="tag strong">Expo</span><span class="tag strong">TypeScript</span>
+            <span class="tag">JavaScript</span><span class="tag">Kotlin</span><span class="tag">Android Studio</span><span class="tag">HTML · CSS</span>
+          </div>
         </div>
-        <div class="skill-groups">
-
-          <div class="skill-group">
-            <h3>Lenguajes</h3>
-            <div class="chips">
-              <span class="chip"><b>Java</b> — integración de datos, POO</span>
-              <span class="chip">Kotlin</span>
-              <span class="chip"><b>Python</b> — scripting, backend</span>
-              <span class="chip"><b>C#</b> — Unity</span>
-              <span class="chip">JavaScript / TypeScript</span>
-              <span class="chip">SQL</span>
-            </div>
+        <div class="skill-group reveal">
+          <h3>Backend y APIs</h3>
+          <div class="tags">
+            <span class="tag strong">Python</span><span class="tag strong">FastAPI</span><span class="tag strong">WebSockets</span>
+            <span class="tag">Java</span><span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">REST</span>
           </div>
-
-          <div class="skill-group">
-            <h3>Bases de datos y persistencia</h3>
-            <div class="chips">
-              <span class="chip"><b>PostgreSQL</b> — con asyncpg</span>
-              <span class="chip">MongoDB</span>
-              <span class="chip">Hibernate — ORM</span>
-              <span class="chip">eXist-db — XML</span>
-            </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Datos y persistencia</h3>
+          <div class="tags">
+            <span class="tag strong">PostgreSQL</span><span class="tag strong">SQLAlchemy</span><span class="tag">SQL</span>
+            <span class="tag">Alembic</span><span class="tag">asyncpg</span><span class="tag">MongoDB</span><span class="tag">Hibernate</span><span class="tag">eXist-db</span>
           </div>
-
-          <div class="skill-group">
-            <h3>Procesamiento e integración de datos</h3>
-            <div class="chips">
-              <span class="chip">SAX / DOM</span>
-              <span class="chip">Apache POI</span>
-              <span class="chip">OpenCSV</span>
-            </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>DevOps y calidad</h3>
+          <div class="tags">
+            <span class="tag strong">Git · GitHub</span><span class="tag strong">pytest</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
           </div>
-
-          <div class="skill-group">
-            <h3>Marcado y estilos</h3>
-            <div class="chips">
-              <span class="chip">XML · HTML · CSS</span>
-              <span class="chip">XPath / XQuery</span>
-            </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Integración de datos</h3>
+          <div class="tags">
+            <span class="tag">XML · XPath · XQuery</span><span class="tag">SAX / DOM</span><span class="tag">Apache POI</span><span class="tag">OpenCSV</span>
           </div>
-
-          <div class="skill-group">
-            <h3>Frameworks y desarrollo móvil/backend</h3>
-            <div class="chips">
-              <span class="chip">React Native + Expo</span>
-              <span class="chip">FastAPI</span>
-              <span class="chip">Node.js</span>
-              <span class="chip">Unity</span>
-              <span class="chip">Android Studio</span>
-            </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Otros</h3>
+          <div class="tags">
+            <span class="tag">C# · Unity</span><span class="tag">Dynamics NAV / Navision</span><span class="tag">APIs de IA (Gemini)</span>
           </div>
-
-          <div class="skill-group">
-            <h3>ERP / Sistemas de gestión</h3>
-            <div class="chips">
-              <span class="chip">Dynamics NAV / Navision</span>
-            </div>
-          </div>
-
         </div>
       </div>
+      <div class="legend"><span><i class="strong"></i>Uso diario</span><span><i></i>Conocimiento práctico</span></div>
     </div>
+  </section>
 
-    <div class="band band-tint" id="educacion">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="section-num mono c-cyan">04</span>
-          <h2 class="section-title">Educación</h2>
-        </div>
+  <!-- ============ FORMACIÓN ============ -->
+  <section id="formacion">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">04 · Formación</div>
+        <h2 class="section-title">Formación e idiomas</h2>
+      </div>
+      <div class="edu-grid">
         <div class="edu-list">
-
-          <div class="edu-item dev">
-            <div class="edu-year mono">2024–2026</div>
+          <div class="edu-item dev reveal">
+            <div class="edu-year">2024 — 2026</div>
             <div>
               <div class="edu-title">CFGS en Desarrollo de Aplicaciones Multiplataforma</div>
               <div class="edu-org">IES Julián Marías, Valladolid</div>
             </div>
           </div>
-
-          <div class="edu-item">
-            <div class="edu-year mono">2022</div>
+          <div class="edu-item reveal">
+            <div class="edu-year">2022</div>
             <div>
               <div class="edu-title">Máster en Contactología Avanzada</div>
               <div class="edu-org">Universitat de València</div>
             </div>
           </div>
-
-          <div class="edu-item">
-            <div class="edu-year mono">2017–2019</div>
+          <div class="edu-item reveal">
+            <div class="edu-year">2017 — 2019</div>
             <div>
               <div class="edu-title">CFGS en Audiología Protésica</div>
               <div class="edu-org">Lyceum Formación, Valladolid</div>
             </div>
           </div>
-
-          <div class="edu-item">
-            <div class="edu-year mono">2012–2016</div>
+          <div class="edu-item reveal">
+            <div class="edu-year">2012 — 2016</div>
             <div>
               <div class="edu-title">Grado en Óptica y Optometría</div>
               <div class="edu-org">Universidad de Valladolid</div>
             </div>
           </div>
-
         </div>
-      </div>
-    </div>
 
-    <div class="band" id="idiomas">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="section-num mono c-amber">05</span>
-          <h2 class="section-title">Idiomas</h2>
-        </div>
-        <div class="lang-list">
-
-          <div class="lang-card">
-            <div class="lang-name">Español</div>
+        <div class="lang-box reveal">
+          <h3>Idiomas</h3>
+          <div>
+            <div class="lang-head"><span>Español</span><span>Nativo</span></div>
             <div class="gauge"><div class="gauge-fill" style="width:100%"></div></div>
-            <div class="gauge-marks"><span>—</span><span>Nativo</span></div>
           </div>
-
-          <div class="lang-card">
-            <div class="lang-name">Inglés</div>
+          <div>
+            <div class="lang-head"><span>Inglés</span><span>Avanzado</span></div>
             <div class="gauge"><div class="gauge-fill" style="width:80%"></div></div>
-            <div class="gauge-marks"><span>—</span><span>Avanzado</span></div>
           </div>
-
-          <div class="lang-card">
-            <div class="lang-name">Portugués</div>
+          <div>
+            <div class="lang-head"><span>Portugués</span><span>Básico</span></div>
             <div class="gauge"><div class="gauge-fill" style="width:30%"></div></div>
-            <div class="gauge-marks"><span>—</span><span>Principiante</span></div>
           </div>
-
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="band band-tint" id="aficiones">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="section-num mono c-violet">06</span>
-          <h2 class="section-title">Aficiones</h2>
+  <!-- ============ SOBRE MÍ ============ -->
+  <section id="sobre-mi">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <div class="section-kicker">05 · Sobre mí</div>
+          <h2 class="section-title" style="margin-bottom:24px;">De la cabina de graduación al editor de código</h2>
+          <p>
+            Durante casi una década trabajé en <strong class="c-amber">optometría clínica</strong>. Graduar una vista, adaptar una lentilla o detectar una pérdida auditiva exige método, calma y un ojo entrenado para el detalle mínimo que cambia todo el resultado.
+          </p>
+          <p>
+            En 2024 decidí dedicarme a lo que llevaba tiempo haciendo por curiosidad: <strong class="c-cyan">construir software</strong>. Desde entonces he pasado de los ejercicios del ciclo a aplicaciones completas con backend, base de datos, tiempo real, tests y despliegue. Me gusta entender el sistema entero y dejar el código mejor de lo que lo encontré.
+          </p>
+          <p>
+            Busco un equipo donde seguir creciendo como desarrollador, aportando a la vez lo que traigo de fuera del sector: trato con personas, rigor y responsabilidad.
+          </p>
         </div>
-        <div class="hobby-grid">
-
-          <div class="hobby">
-            <div class="hobby-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="8" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/><circle cx="12" cy="12" r="1"/></svg></div>
-            <div class="hobby-name">Juegos de mesa</div>
+        <div class="reveal">
+          <div class="side-label">Fuera del teclado</div>
+          <div class="hobbies">
+            <span class="hobby"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="16" r="1"/><circle cx="12" cy="12" r="1"/></svg>Juegos de mesa</span>
+            <span class="hobby"><svg viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/><path d="M12 2v20M2 12h20"/></svg>Origami</span>
+            <span class="hobby"><svg viewBox="0 0 24 24"><path d="M4 4h9a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3Z"/><path d="M13 4v16"/></svg>Lectura</span>
+            <span class="hobby"><svg viewBox="0 0 24 24"><path d="M4 20 14 10M14 10l7-7v3l-5 5M14 10l2 2"/><circle cx="5.5" cy="18.5" r="2"/></svg>Pintura de miniaturas</span>
+            <span class="hobby"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>Viajar</span>
           </div>
-
-          <div class="hobby">
-            <div class="hobby-badge"><svg viewBox="0 0 24 24"><path d="M12 2 L22 12 L12 22 L2 12 Z"/><path d="M12 2 L12 22 M2 12 L22 12"/></svg></div>
-            <div class="hobby-name">Origami</div>
-          </div>
-
-          <div class="hobby">
-            <div class="hobby-badge"><svg viewBox="0 0 24 24"><path d="M4 4 h9 a3 3 0 0 1 3 3 v13 h-9 a3 3 0 0 1 -3 -3 Z"/><path d="M13 4 v16"/></svg></div>
-            <div class="hobby-name">Lectura</div>
-          </div>
-
-          <div class="hobby">
-            <div class="hobby-badge"><svg viewBox="0 0 24 24"><path d="M4 20 L14 10 M14 10 L21 3 L21 6 L16 11 M14 10 L16 12"/><circle cx="5.5" cy="18.5" r="2"/></svg></div>
-            <div class="hobby-name">Pintura de miniaturas</div>
-          </div>
-
-          <div class="hobby">
-            <div class="hobby-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12 h18 M12 3 c3 3.5 3 14.5 0 18 M12 3 c-3 3.5 -3 14.5 0 18"/></svg></div>
-            <div class="hobby-name">Viajar y otras culturas</div>
-          </div>
-
         </div>
       </div>
     </div>
+  </section>
 
-    <footer>
-      <div class="slip">
-        <div class="slip-name">Raúl Santamaría Domínguez</div>
-        <div class="slip-line">
-          <div>Valladolid, España</div>
-          <div><span>696 766 337</span></div>
-          <div><span>raulsantamariadominguez@gmail.com</span></div>
+  <!-- ============ CONTACTO ============ -->
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-card reveal">
+        <div>
+          <div class="section-kicker">06 · Contacto</div>
+          <h2 style="margin-top:10px;">¿Hablamos?</h2>
+          <p>Estoy buscando mi primera posición como desarrollador, en Valladolid o en remoto. Si mi perfil encaja con tu equipo, escríbeme.</p>
         </div>
-        <div class="slip-sign">
-          <span>Disponible para incorporación</span>
-          <span>Válido indefinidamente</span>
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:raulsantamariadominguez@gmail.com">
+            <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <div><small>Email</small><span>raulsantamariadominguez@gmail.com</span></div>
+          </a>
+          <a class="contact-item" href="tel:+34696766337">
+            <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <div><small>Teléfono</small><span>+34 696 766 337</span></div>
+          </a>
+          <a class="contact-item" href="https://github.com/RaulSantamaria1994" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" class="icon-stroke"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+            <div><small>GitHub</small><span>github.com/RaulSantamaria1994</span></div>
+          </a>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><small>Ubicación</small><span>Valladolid, España · carné B</span></div>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-  </main>
-</div>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© <span id="year">2026</span> Raúl Santamaría Domínguez</span>
+    <span>Hecho a mano · HTML, CSS y JS sin frameworks</span>
+  </div>
+</footer>
 
 <script>
+  // Phoropter: de óptico a desarrollador
   const slider = document.getElementById('focusSlider');
   const before = document.getElementById('roleBefore');
   const after = document.getElementById('roleAfter');
-
   function update(v){
-    const t = v/100;
-    before.style.opacity = Math.max(0, 1 - t*1.3);
-    after.style.opacity = Math.min(1, t*1.3);
+    const t = v / 100;
+    before.style.opacity = Math.max(0, 1 - t * 1.3);
+    after.style.opacity = Math.min(1, t * 1.3);
   }
   slider.addEventListener('input', e => update(parseFloat(e.target.value)));
   update(parseFloat(slider.value));
 
-  const navLinks = document.querySelectorAll('.side-nav a');
-  const sections = document.querySelectorAll('main > .band');
-  const map = new Map();
-  navLinks.forEach(a => map.set(a.getAttribute('href').slice(1), a));
-  const observer = new IntersectionObserver((entries) => {
+  // Nav: borde al hacer scroll y menú móvil
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Enlace activo según la sección visible
+  const navMap = new Map();
+  links.querySelectorAll('a').forEach(a => navMap.set(a.getAttribute('href').slice(1), a));
+  const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const link = map.get(entry.target.id);
-      if(!link) return;
+      if(!entry.isIntersecting) return;
+      navMap.forEach(a => a.classList.remove('active'));
+      const link = navMap.get(entry.target.id);
+      if(link && !link.classList.contains('nav-cta')) link.classList.add('active');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section').forEach(s => sectionObserver.observe(s));
+
+  // Aparición suave al hacer scroll
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if(entry.isIntersecting){
-        navLinks.forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-  sections.forEach(s => observer.observe(s));
-</script>
+  }, { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
