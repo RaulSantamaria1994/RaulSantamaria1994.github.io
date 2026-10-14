@@ -248,8 +248,53 @@
     padding:4px 9px; border-radius:5px;
     border:1px solid var(--line-strong); color:var(--text-soft); background:var(--bg-panel);
   }
-  .arch{font-family:'IBM Plex Mono',monospace; font-size:.74rem; color:var(--muted); line-height:1.9; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:14px 16px; overflow-x:auto; white-space:pre; margin:0;}
-  .arch .c{color:var(--terracotta);} .arch .a{color:var(--ochre);} .arch .v{color:var(--sage);}
+  /* Diagramas de arquitectura */
+  .arch{display:flex; flex-direction:column; margin:0;}
+  .arch-node{
+    position:relative; z-index:1;
+    border:1px solid var(--line-strong); border-left-width:3px; border-radius:8px;
+    background:var(--bg-panel); padding:10px 12px;
+  }
+  .arch-node.l-client{border-left-color:var(--terracotta);}
+  .arch-node.l-api{border-left-color:var(--ochre);}
+  .arch-node.l-data{border-left-color:var(--sage);}
+  .arch-node.l-ext{border-left-color:var(--line-strong); border-style:dashed; border-left-style:solid; background:transparent;}
+  .arch-layer{display:block; font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  .arch-node strong{display:block; font-family:'Space Grotesk',sans-serif; font-size:.92rem; font-weight:600; color:var(--text); margin-top:1px;}
+  .arch-node small{display:block; font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--muted); margin-top:1px;}
+  .arch-node.l-ext strong{font-size:.8rem; line-height:1.25;}
+  .arch-node.l-ext{padding:8px 10px;}
+  .arch-sub{display:flex; flex-wrap:wrap; gap:4px; margin-top:8px;}
+  .arch-sub span{font-family:'IBM Plex Mono',monospace; font-size:.64rem; color:var(--text-soft); background:var(--bg-alt); border-radius:4px; padding:2px 6px;}
+  .arch-link{
+    position:relative; display:flex; justify-content:flex-start; align-items:center; flex-wrap:wrap; gap:6px;
+    min-height:46px; padding:10px 0 10px 42px;
+  }
+  .arch-link::before{content:""; position:absolute; left:26px; top:0; bottom:5px; border-left:1.5px solid var(--line-strong);}
+  .arch-link::after, .arch-link.bi .up{
+    content:""; position:absolute; left:22px; bottom:0;
+    border-left:4.5px solid transparent; border-right:4.5px solid transparent; border-top:6px solid var(--line-strong);
+  }
+  .arch-link.bi::before{top:5px;}
+  .arch-link.bi .up{top:0; bottom:auto; border-top:none; border-bottom:6px solid var(--line-strong);}
+  .arch-link span{
+    position:relative; z-index:1; font-family:'IBM Plex Mono',monospace; font-size:.64rem; color:var(--text-soft);
+    background:var(--bg-alt); border:1px solid var(--line); border-radius:20px; padding:2px 8px; white-space:nowrap;
+  }
+  .arch-row{display:grid; grid-template-columns:minmax(0,1.5fr) 22px minmax(0,1fr); align-items:center;}
+  .arch-hlink{position:relative; height:1.5px; background:var(--line-strong);}
+  .arch-hlink::after{content:""; position:absolute; right:-1px; top:-4px; border-top:4.5px solid transparent; border-bottom:4.5px solid transparent; border-left:6px solid var(--line-strong);}
+  .arch-hlink.rev::after{right:auto; left:-1px; border-left:none; border-right:6px solid var(--line-strong);}
+  .arch-ext-list{display:grid; gap:6px;}
+  .arch-ext-list > .arch-layer{padding-left:2px;}
+  .arch-group{position:relative; border:1.5px dashed var(--line-strong); border-radius:12px; padding:22px 10px 10px; margin-top:4px;}
+  .arch-group-label{
+    position:absolute; top:-9px; left:12px; z-index:2;
+    font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--sage); background:var(--bg-alt); padding:0 6px;
+  }
+  .arch-legend{display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:.62rem; color:var(--muted);}
+  .arch-legend i{display:inline-block; width:8px; height:8px; border-radius:2px; margin-right:5px; vertical-align:-1px;}
 
   /* ---------- EXPERIENCE ---------- */
   .timeline{display:grid; gap:14px;}
@@ -526,11 +571,34 @@
             </div>
             <div>
               <div class="side-label">Arquitectura</div>
-<pre class="arch"><span class="c">React Native + Expo</span>  (Zustand)
-      │  REST  ·  WebSocket
-<span class="a">FastAPI</span>  ─  motor de juego
-      │  SQLAlchemy · Alembic
-<span class="v">PostgreSQL</span></pre>
+<figure class="arch" aria-label="Arquitectura del RPG: app React Native comunicada por REST y WebSocket con un backend FastAPI que persiste en PostgreSQL">
+                <div class="arch-row">
+                  <div class="arch-node l-client">
+                    <span class="arch-layer">App móvil</span>
+                    <strong>React Native + Expo</strong>
+                    <small>TypeScript · Zustand</small>
+                  </div>
+                  <div class="arch-hlink rev" aria-hidden="true"></div>
+                  <div class="arch-node l-ext">
+                    <span class="arch-layer">CI</span>
+                    <strong>GitHub Actions</strong>
+                    <small>build APK</small>
+                  </div>
+                </div>
+                <div class="arch-link bi"><i class="up" aria-hidden="true"></i><span>REST</span><span>WebSocket · tiempo real</span></div>
+                <div class="arch-node l-api">
+                  <span class="arch-layer">API</span>
+                  <strong>FastAPI</strong>
+                  <div class="arch-sub"><span>salas y personajes</span><span>gestor WebSocket</span><span>motor de juego d20</span><span>auth JWT</span></div>
+                </div>
+                <div class="arch-link"><span>SQLAlchemy · Alembic</span></div>
+                <div class="arch-node l-data">
+                  <span class="arch-layer">Datos</span>
+                  <strong>PostgreSQL</strong>
+                  <div class="arch-sub"><span>estado de sala</span><span>historias (seeds JSON)</span></div>
+                </div>
+                <div class="arch-legend"><span><i style="background:var(--terracotta)"></i>Cliente</span><span><i style="background:var(--ochre)"></i>Servidor</span><span><i style="background:var(--sage)"></i>Datos</span></div>
+              </figure>
             </div>
             <div>
               <div class="side-label">Stack</div>
@@ -583,11 +651,37 @@
             </div>
             <div>
               <div class="side-label">Arquitectura</div>
-<pre class="arch"><span class="c">Expo Router</span>  (React Native)
-      │  REST + JWT
-<span class="a">FastAPI async</span>  ─  Gemini API
-      │  asyncpg          Open Food Facts
-<span class="v">PostgreSQL</span>  ·  Docker</pre>
+<figure class="arch" aria-label="Arquitectura de TheGoodWay: app Expo Router comunicada por REST con JWT con un backend FastAPI asíncrono y PostgreSQL desplegados con Docker; el backend consulta los servicios externos Gemini y Open Food Facts">
+                <div class="arch-node l-client">
+                  <span class="arch-layer">App móvil</span>
+                  <strong>Expo Router</strong>
+                  <small>React Native · TypeScript</small>
+                </div>
+                <div class="arch-link"><span>REST · JWT</span></div>
+                <div class="arch-row">
+                  <div class="arch-group">
+                    <span class="arch-group-label">Docker · servidor</span>
+                    <div class="arch-node l-api">
+                      <span class="arch-layer">API async</span>
+                      <strong>FastAPI</strong>
+                      <div class="arch-sub"><span>cálculo calórico</span><span>menús IA</span><span>auth bcrypt</span></div>
+                    </div>
+                    <div class="arch-link"><span>asyncpg</span></div>
+                    <div class="arch-node l-data">
+                      <span class="arch-layer">Datos</span>
+                      <strong>PostgreSQL</strong>
+                      <small>volumen persistente</small>
+                    </div>
+                  </div>
+                  <div class="arch-hlink" aria-hidden="true"></div>
+                  <div class="arch-ext-list">
+                    <span class="arch-layer">Servicios externos</span>
+                    <div class="arch-node l-ext"><span class="arch-layer">IA</span><strong>Gemini API</strong></div>
+                    <div class="arch-node l-ext"><span class="arch-layer">Alimentos</span><strong>Open Food Facts</strong></div>
+                  </div>
+                </div>
+                <div class="arch-legend"><span><i style="background:var(--terracotta)"></i>Cliente</span><span><i style="background:var(--ochre)"></i>Servidor</span><span><i style="background:var(--sage)"></i>Datos</span></div>
+              </figure>
             </div>
             <div>
               <div class="side-label">Stack</div>
