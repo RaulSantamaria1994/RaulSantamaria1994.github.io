@@ -9,4 +9,4 @@ Editar:
 
 Para añadir un proyecto, copia uno de los bloques `<article class="project ...">`
 de la sección `#proyectos` y cambia textos, etiquetas y enlaces.
-Variantes de color: `p-cyan`, `p-amber`, `p-violet`.
+Variantes de color: `p-terracotta`, `p-ochre`, `p-sage`.
