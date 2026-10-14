@@ -10,3 +10,8 @@ Editar:
 Para añadir un proyecto, copia uno de los bloques `<article class="project ...">`
 de la sección `#proyectos` y cambia textos, etiquetas y enlaces.
 Variantes de color: `p-terracotta`, `p-ochre`, `p-sage`.
+
+## CV en PDF
+`cv/cv.html` es la fuente del CV y `cv/Raul_Santamaria_CV.pdf` el archivo que se descarga desde la web.
+Si cambias el CV, abre `cv/cv.html` en Chrome, pulsa Imprimir → "Guardar como PDF"
+(tamaño A4, márgenes "Predeterminados") y sustituye `cv/Raul_Santamaria_CV.pdf`.

@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raúl Santamaría — Desarrollador de aplicaciones multiplataforma</title>
-<meta name="description" content="Portfolio de Raúl Santamaría Domínguez, desarrollador de aplicaciones multiplataforma en Valladolid. Proyectos full-stack con FastAPI, React Native, PostgreSQL y tiempo real.">
+<title>Raúl Santamaría — Desarrollador Full-Stack Junior · Python, FastAPI, React Native</title>
+<meta name="description" content="Raúl Santamaría Domínguez, desarrollador full-stack junior en Valladolid (CFGS DAM). Python, FastAPI, React Native, TypeScript y PostgreSQL. Disponible para incorporación. Proyectos, CV y contacto.">
 <meta name="author" content="Raúl Santamaría Domínguez">
 <meta name="theme-color" content="#f3ede3">
 <link rel="canonical" href="https://raulsantamaria1994.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Raúl Santamaría — Desarrollador de aplicaciones multiplataforma">
-<meta property="og:description" content="Proyectos full-stack con FastAPI, React Native, PostgreSQL y tiempo real. Diez años de precisión clínica, ahora aplicados al software.">
+<meta property="og:title" content="Raúl Santamaría — Desarrollador Full-Stack Junior">
+<meta property="og:description" content="Proyectos full-stack con FastAPI, React Native, PostgreSQL y tiempo real. Desarrollador full-stack junior, disponible para incorporación. Proyectos, CV y contacto.">
 <meta property="og:url" content="https://raulsantamaria1994.github.io/">
 <meta property="og:image" content="https://raulsantamaria1994.github.io/raul.jpg">
 <meta property="og:locale" content="es_ES">
@@ -23,7 +23,9 @@
   "@context":"https://schema.org",
   "@type":"Person",
   "name":"Raúl Santamaría Domínguez",
-  "jobTitle":"Desarrollador de aplicaciones multiplataforma",
+  "jobTitle":"Desarrollador Full-Stack Junior",
+  "knowsAbout":["Python","FastAPI","React Native","TypeScript","PostgreSQL","WebSockets","Docker","Java"],
+  "alumniOf":[{"@type":"EducationalOrganization","name":"IES Julián Marías"},{"@type":"CollegeOrUniversity","name":"Universidad de Valladolid"}],
   "address":{"@type":"PostalAddress","addressLocality":"Valladolid","addressCountry":"ES"},
   "email":"mailto:raulsantamariadominguez@gmail.com",
   "url":"https://raulsantamaria1994.github.io/",
@@ -191,12 +193,35 @@
   }
   .photo-tag b{color:var(--terracotta); font-weight:500;}
 
-  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:72px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
-  .stat{background:var(--bg-alt); padding:22px 24px;}
-  .stat-num{font-family:'Space Grotesk',sans-serif; font-size:1.7rem; font-weight:600; color:var(--text);}
-  .stat-num span{color:var(--terracotta);}
-  .stat-num .count{color:inherit;}
-  .stat-label{font-size:.82rem; color:var(--muted); margin-top:2px;}
+
+  /* ---------- FICHA RÁPIDA ---------- */
+  .snapshot{
+    margin-top:64px; border:1px solid var(--line); border-radius:14px; background:var(--bg-panel);
+    box-shadow:0 1px 2px rgba(80,60,40,.04), 0 8px 24px rgba(80,60,40,.05); overflow:hidden;
+  }
+  .snap-head{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:22px 28px; border-bottom:1px solid var(--line);}
+  .snap-title{font-size:1.2rem; font-weight:600; margin-top:4px;}
+  .snap-actions{display:flex; gap:8px; flex-wrap:wrap;}
+  .btn-small{padding:9px 14px; font-size:.78rem; cursor:pointer;}
+  .btn-small svg{width:15px; height:15px;}
+  .snap-grid{display:grid; grid-template-columns:repeat(3,1fr); margin:0;}
+  .snap-item{padding:18px 28px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .snap-item:nth-child(3n){border-right:none;}
+  .snap-item dt{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  .snap-item dd{margin:6px 0 0; font-size:.95rem; color:var(--text); line-height:1.45;}
+  .snap-item dd strong{font-weight:600;}
+  .snap-wide{grid-column:1/-1; border-right:none; border-bottom:none;}
+  .snap-wide dd.tags{gap:6px;}
+  .snap-ok{color:var(--olive); font-size:.7rem; vertical-align:2px; margin-right:2px;}
+
+  .toast{
+    position:fixed; left:50%; bottom:24px; z-index:100;
+    transform:translate(-50%, 20px); opacity:0; pointer-events:none;
+    background:var(--text); color:var(--on-accent); font-family:'IBM Plex Mono',monospace; font-size:.8rem;
+    padding:10px 16px; border-radius:8px; box-shadow:0 8px 24px rgba(40,30,20,.2);
+    transition:opacity .25s ease, transform .25s var(--ease-out, ease);
+  }
+  .toast.show{opacity:1; transform:translate(-50%, 0);}
 
   /* ---------- SECTIONS ---------- */
   section{padding:88px 0; border-top:1px solid var(--line);}
@@ -409,7 +434,7 @@
   .hero-grid > div:first-child > :nth-child(5){animation-delay:.32s;}
   .hero-grid > div:first-child > :nth-child(n+6){animation-delay:.42s;}
   .hero-photo{animation:popIn .8s var(--ease-out) .2s both;}
-  .stats{animation:fadeUp .7s var(--ease-out) .5s both;}
+  .snapshot{animation:fadeUp .7s var(--ease-out) .5s both;}
 
   /* Botones: elevación, sombra, pulsación y brillo */
   .btn{position:relative; overflow:hidden; transition:transform .2s var(--ease-out), border-color .2s ease, background .2s ease, box-shadow .2s ease;}
@@ -450,9 +475,8 @@
   .project:hover{transform:translateY(-3px); box-shadow:0 2px 4px rgba(80,60,40,.05), 0 16px 36px rgba(80,60,40,.09);}
   .project-icon{transition:transform .35s var(--ease-out);}
   .project:hover .project-icon{transform:rotate(-6deg) scale(1.08);}
-  .tl-item, .skill-group, .edu-item, .lang-box, .stat{transition:opacity .6s ease, border-color .2s ease, transform .4s var(--ease-out), background .2s ease;}
+  .tl-item, .skill-group, .edu-item, .lang-box{transition:opacity .6s ease, border-color .2s ease, transform .4s var(--ease-out), background .2s ease;}
   .tl-item:hover, .edu-item:hover, .skill-group:hover{transform:translateY(-2px); border-color:var(--line-strong);}
-  .stat:hover{background:var(--bg-panel);}
   .tag{transition:border-color .15s ease, transform .15s var(--ease-out), background .15s ease;}
   .tag:hover{transform:translateY(-2px); border-color:var(--terracotta-soft-2);}
   .hobby{transition:border-color .2s ease, transform .2s var(--ease-out);}
@@ -516,7 +540,12 @@
     .hero-photo{order:-1;}
     .photo-wrap{width:150px; height:150px;}
     .photo-tag{display:none;}
-    .stats{grid-template-columns:repeat(2,1fr); margin-top:48px;}
+    .snapshot{margin-top:48px;}
+    .snap-grid{grid-template-columns:1fr 1fr;}
+    .snap-item{padding:16px 20px;}
+    .snap-item:nth-child(3n){border-right:1px solid var(--line);}
+    .snap-item:nth-child(2n){border-right:none;}
+    .snap-head{padding:20px;}
     section{padding:64px 0;}
     .tl-item{grid-template-columns:1fr; gap:6px; padding:22px;}
     .transfer{grid-template-columns:1fr;}
@@ -529,6 +558,8 @@
     .hero-role{height:3.2em;}
     .role{white-space:normal;}
     .edu-item{grid-template-columns:1fr; gap:4px;}
+    .snap-grid{grid-template-columns:1fr;}
+    .snap-item{border-right:none !important;}
   }
   @media print{
     *, *::before, *::after{animation:none !important;}
@@ -573,23 +604,23 @@
           <h1>Raúl Santamaría<br>Domínguez</h1>
           <div class="hero-role" aria-live="polite">
             <span class="role role-before" id="roleBefore">Óptico&#8209;Optometrista</span>
-            <span class="role role-after" id="roleAfter" style="opacity:0">Desarrollador de aplicaciones multiplataforma</span>
+            <span class="role role-after" id="roleAfter" style="opacity:0">Desarrollador Full&#8209;Stack · Python &amp; React Native</span>
           </div>
           <p class="hero-lead">
-            Construyo <strong>aplicaciones móviles y backends</strong> de principio a fin: APIs con FastAPI, apps con React Native, bases de datos PostgreSQL y comunicación en tiempo real. Antes, diez años de optometría clínica me enseñaron que <strong>la precisión no es opcional</strong>.
+            Construyo <strong>aplicaciones móviles y backends</strong> de principio a fin: APIs con FastAPI, apps con React Native, bases de datos PostgreSQL y comunicación en tiempo real. Antes, siete años como óptico-optometrista me enseñaron que <strong>la precisión no es opcional</strong>.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#proyectos">
+            <a class="btn btn-primary" href="cv/Raul_Santamaria_CV.pdf" download>
+              Descargar CV
+              <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+            </a>
+            <a class="btn" href="#proyectos">
+              <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
               Ver proyectos
-              <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
             </a>
             <a class="btn" href="https://github.com/RaulSantamaria1994" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
               GitHub
-            </a>
-            <a class="btn" href="#contacto">
-              <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              Contactar
             </a>
           </div>
           <div class="phoropter">
@@ -609,11 +640,33 @@
         </div>
       </div>
 
-      <div class="stats">
-        <div class="stat"><div class="stat-num"><span class="count" data-count="3">3</span><span>+</span></div><div class="stat-label">aplicaciones full-stack construidas</div></div>
-        <div class="stat"><div class="stat-num">Py<span>·</span>TS</div><div class="stat-label">FastAPI y React Native como stack principal</div></div>
-        <div class="stat"><div class="stat-num"><span class="count" data-count="10">10</span></div><div class="stat-label">años de trato directo con clientes y pacientes</div></div>
-        <div class="stat"><div class="stat-num">ES<span>·</span>EN</div><div class="stat-label">nativo · inglés avanzado</div></div>
+      <div class="snapshot" aria-labelledby="snapTitle">
+        <div class="snap-head">
+          <div>
+            <div class="section-kicker">Ficha rápida</div>
+            <h2 class="snap-title" id="snapTitle">Lo esencial en 10 segundos</h2>
+          </div>
+          <div class="snap-actions">
+            <button class="btn btn-small" type="button" data-copy="raulsantamariadominguez@gmail.com">
+              <svg viewBox="0 0 24 24" class="icon-stroke"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              <span>Copiar email</span>
+            </button>
+            <a class="btn btn-small" href="cv/Raul_Santamaria_CV.pdf" download>
+              <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+              CV en PDF
+            </a>
+          </div>
+        </div>
+        <dl class="snap-grid">
+          <div class="snap-item"><dt>Busco</dt><dd>Puesto de desarrollador <strong>junior</strong>: full-stack, backend Python o móvil React Native</dd></div>
+          <div class="snap-item"><dt>Disponibilidad</dt><dd><span class="snap-ok">●</span> Inmediata</dd></div>
+          <div class="snap-item"><dt>Ubicación</dt><dd>Valladolid · abierto a remoto e híbrido</dd></div>
+          <div class="snap-item"><dt>Titulación</dt><dd>CFGS Desarrollo de Aplicaciones Multiplataforma (2026)</dd></div>
+          <div class="snap-item"><dt>Experiencia</dt><dd>Prácticas en Vaelsys · 3 proyectos full-stack · 7 años de trato con clientes</dd></div>
+          <div class="snap-item"><dt>Idiomas</dt><dd>Español nativo · Inglés avanzado</dd></div>
+          <div class="snap-item snap-wide"><dt>Stack principal</dt><dd class="tags"><span class="tag strong">Python</span><span class="tag strong">FastAPI</span><span class="tag strong">TypeScript</span><span class="tag strong">React Native</span><span class="tag strong">PostgreSQL</span><span class="tag">WebSockets</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">pytest</span><span class="tag">Java</span></dd></div>
+        </dl>
+      </div>
       </div>
     </div>
   </div>
@@ -1023,7 +1076,7 @@
           <div class="section-kicker">05 · Sobre mí</div>
           <h2 class="section-title" style="margin-bottom:24px;">De la cabina de graduación al editor de código</h2>
           <p>
-            Durante casi una década trabajé en <strong class="c-ochre">optometría clínica</strong>. Graduar una vista, adaptar una lentilla o detectar una pérdida auditiva exige método, calma y un ojo entrenado para el detalle mínimo que cambia todo el resultado.
+            Durante siete años trabajé en <strong class="c-ochre">optometría clínica</strong>. Graduar una vista, adaptar una lentilla o detectar una pérdida auditiva exige método, calma y un ojo entrenado para el detalle mínimo que cambia todo el resultado.
           </p>
           <p>
             En 2024 decidí dedicarme a lo que llevaba tiempo haciendo por curiosidad: <strong class="c-terracotta">construir software</strong>. Desde entonces he pasado de los ejercicios del ciclo a aplicaciones completas con backend, base de datos, tiempo real, tests y despliegue. Me gusta entender el sistema entero y dejar el código mejor de lo que lo encontré.
@@ -1053,7 +1106,17 @@
         <div>
           <div class="section-kicker">06 · Contacto</div>
           <h2 style="margin-top:10px;">¿Hablamos?</h2>
-          <p>Estoy buscando mi primera posición como desarrollador, en Valladolid o en remoto. Si mi perfil encaja con tu equipo, escríbeme.</p>
+          <p>Estoy buscando mi primera posición como desarrollador, en Valladolid o en remoto, con incorporación inmediata. Si mi perfil encaja con tu equipo, escríbeme.</p>
+          <div class="hero-actions" style="margin-top:24px;">
+            <a class="btn btn-primary" href="mailto:raulsantamariadominguez@gmail.com?subject=Oferta%20de%20empleo%20-%20Desarrollador">
+              Escribir un email
+              <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn" href="cv/Raul_Santamaria_CV.pdf" download>
+              <svg viewBox="0 0 24 24" class="icon-stroke"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+              Descargar CV
+            </a>
+          </div>
         </div>
         <div class="contact-list">
           <a class="contact-item" href="mailto:raulsantamariadominguez@gmail.com">
@@ -1078,6 +1141,8 @@
   </section>
 
 </main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <footer>
   <div class="container">
@@ -1139,26 +1204,24 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Contadores de la franja de datos
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const counters = document.querySelectorAll('.count');
-  if(!reduceMotion){
-    const countObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        const el = entry.target, target = +el.dataset.count, start = performance.now(), dur = 1100;
-        const step = now => {
-          const t = Math.min(1, (now - start) / dur);
-          el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
-          if(t < 1) requestAnimationFrame(step);
-        };
-        el.textContent = '0';
-        setTimeout(() => requestAnimationFrame(step), 500);
-        countObserver.unobserve(el);
-      });
-    });
-    counters.forEach(c => countObserver.observe(c));
+  // Copiar email al portapapeles
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
   }
+  document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+    const text = btn.dataset.copy;
+    try{
+      await navigator.clipboard.writeText(text);
+      showToast('Email copiado: ' + text);
+    }catch{
+      window.location.href = 'mailto:' + text;
+    }
+  }));
 
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
