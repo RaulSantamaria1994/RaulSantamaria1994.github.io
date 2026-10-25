@@ -361,9 +361,14 @@
   .skill-group .tags{gap:8px;}
   .skill-group .tag{font-size:.8rem; padding:6px 11px;}
   .tag.strong{border-color:var(--terracotta-soft-2); color:var(--text); background:var(--terracotta-soft);}
-  .legend{display:flex; gap:20px; margin-top:20px; font-family:'IBM Plex Mono',monospace; font-size:.74rem; color:var(--muted);}
+  .legend{display:flex; flex-wrap:wrap; gap:10px 20px; margin-top:20px; font-family:'IBM Plex Mono',monospace; font-size:.74rem; color:var(--muted);}
   .legend span{display:inline-flex; align-items:center; gap:8px;}
   .legend i{width:12px; height:12px; border-radius:3px; border:1px solid var(--line-strong); background:var(--bg-panel);}
+  .skill-group-wide{grid-column:1/-1;}
+  .skill-group.learning{border-style:dashed; border-color:var(--line-strong); background:transparent;}
+  .skill-group.learning h3{color:var(--olive) !important;}
+  .skill-group.learning .tag{border-style:dashed; background:transparent;}
+  .legend i.learning{border-style:dashed; background:transparent;}
   .legend i.strong{border-color:var(--terracotta-soft-2); background:var(--terracotta-soft);}
 
   /* ---------- EDUCATION ---------- */
@@ -377,6 +382,9 @@
   .edu-org{color:var(--muted); font-size:.9rem; margin-top:2px;}
   .edu-org a{color:inherit;}
   .edu-org a:hover{color:var(--terracotta);}
+  .edu-modules{list-style:none; counter-reset:mod; margin:12px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px;}
+  .edu-modules li{counter-increment:mod; font-size:.8rem; color:var(--text-soft); background:var(--bg-alt); border-radius:5px; padding:3px 9px 3px 7px;}
+  .edu-modules li::before{content:counter(mod); font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--terracotta); margin-right:6px;}
   .edu-badge{display:inline-block; vertical-align:2px; margin-left:6px; font-family:'IBM Plex Mono',monospace; font-size:.66rem; font-weight:500; letter-spacing:.04em; color:var(--olive); background:rgba(94,122,69,.10); border:1px solid rgba(94,122,69,.3); padding:1px 7px; border-radius:20px;}
   .lang-box{border:1px solid var(--line); border-radius:var(--radius); padding:24px; background:var(--bg-panel); display:grid; gap:20px;}
   .lang-box h3{font-family:'IBM Plex Mono',monospace; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; font-weight:500; color:var(--sage);}
@@ -1019,8 +1027,14 @@
             <span class="tag">C# · Unity</span><span class="tag">Dynamics NAV / Navision</span><span class="tag">APIs de IA (Gemini)</span>
           </div>
         </div>
+        <div class="skill-group skill-group-wide learning reveal">
+          <h3>IA generativa · en formación</h3>
+          <div class="tags">
+            <span class="tag">APIs de LLMs (OpenAI, Anthropic, Google)</span><span class="tag">Prompt engineering</span><span class="tag">RAG</span><span class="tag">Embeddings y bases vectoriales</span><span class="tag">LangChain · LangGraph</span><span class="tag">Agentes y multi-agente</span><span class="tag">MCP</span><span class="tag">n8n</span><span class="tag">Pydantic</span><span class="tag">LLMOps y evaluación</span><span class="tag">Claude Code · Cursor</span>
+          </div>
+        </div>
       </div>
-      <div class="legend"><span><i class="strong"></i>Uso diario</span><span><i></i>Conocimiento práctico</span></div>
+      <div class="legend"><span><i class="strong"></i>Uso diario</span><span><i></i>Conocimiento práctico</span><span><i class="learning"></i>En formación (bootcamp Neoland)</span></div>
     </div>
   </section>
 
@@ -1037,7 +1051,8 @@
             <div class="edu-year">Oct 2026 — actualidad</div>
             <div>
               <div class="edu-title">Bootcamp de Inteligencia Artificial · AI Engineering <span class="edu-badge">En curso</span></div>
-              <div class="edu-org"><a href="https://neoland.es/bootcamps/inteligencia-artificial/" target="_blank" rel="noopener">Neoland</a></div>
+              <div class="edu-org"><a href="https://neoland.es/bootcamps/inteligencia-artificial/" target="_blank" rel="noopener">Neoland</a> · 9 módulos</div>
+              <ol class="edu-modules"><li>Python para IA y vibe coding</li><li>Prompt engineering y APIs de LLMs</li><li>Automatización con n8n y Make</li><li>RAG y bases vectoriales</li><li>LangChain, LangGraph y agentes</li><li>Voz, visión y multimodalidad</li><li>Backend de IA con FastAPI</li><li>LLMOps, AI Safety y AI Act</li><li>Proyecto final: producto de IA end-to-end</li></ol>
             </div>
           </div>
           <div class="edu-item dev reveal">
