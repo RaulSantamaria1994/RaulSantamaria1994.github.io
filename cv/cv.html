@@ -12,6 +12,9 @@
   *{box-sizing:border-box;}
   body{margin:0; font-family:Arial, "Liberation Sans", Helvetica, sans-serif; font-size:9.4pt; line-height:1.38; color:var(--text); background:#fff;}
   .page{max-width:180mm; margin:0 auto;}
+  header{display:flex; align-items:center; gap:16px;}
+  .header-text{flex:1; min-width:0;}
+  .photo{width:27mm; height:27mm; border-radius:50%; object-fit:cover; flex-shrink:0; border:1.5px solid var(--line);}
   h1{font-size:21pt; margin:0; letter-spacing:-.01em;}
   .title{font-size:11pt; color:var(--accent); font-weight:600; margin-top:2px;}
   .contact{margin-top:6px; color:var(--soft); font-size:8.8pt;}
@@ -41,14 +44,17 @@
 <div class="page">
 
   <header>
+    <div class="header-text">
     <h1>Raúl Santamaría Domínguez</h1>
     <div class="title">Desarrollador Full-Stack Junior · Java, Python, React Native</div>
     <div class="contact">
       <span>Valladolid, España (presencial, híbrido o remoto)</span><span><a href="mailto:raulsantamariadominguez@gmail.com">raulsantamariadominguez@gmail.com</a></span><span>+34 696 766 337</span>
     </div>
     <div class="contact">
-      <span><a href="https://raulsantamaria1994.github.io/">raulsantamaria1994.github.io</a></span><span><a href="https://github.com/RaulSantamaria1994">github.com/RaulSantamaria1994</a></span><span><a href="https://www.linkedin.com/in/ra%C3%BAl-santamar%C3%ADa-dom%C3%ADnguez-49b176397/">LinkedIn</a></span><span>Disponibilidad inmediata</span><span>Carné B</span>
+      <span><a href="https://raulsantamaria1994.github.io/">raulsantamaria1994.github.io</a></span><span><a href="https://github.com/RaulSantamaria1994">github.com/RaulSantamaria1994</a></span><span><a href="https://www.linkedin.com/in/ra%C3%BAl-santamar%C3%ADa-dom%C3%ADnguez-49b176397/">LinkedIn</a></span><span>Disponibilidad inmediata</span>
     </div>
+    </div>
+    <img class="photo" src="../raul-480.jpg" alt="Foto de Raúl Santamaría Domínguez">
   </header>
 
   <h2>Perfil</h2>
@@ -104,6 +110,8 @@
     <div>
       <h2>Idiomas</h2>
       <p>Español: nativo<br>Inglés: avanzado<br>Portugués: básico</p>
+      <h2>Otros datos</h2>
+      <p>Carné de conducir B</p>
       <h2>Intereses</h2>
       <p class="item-sub">Juegos de mesa, origami, lectura, pintura de miniaturas y viajar.</p>
     </div>
