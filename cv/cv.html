@@ -59,7 +59,7 @@
   </header>
 
   <h2>Perfil</h2>
-  <p>AI Engineer junior con una base sólida de backend: APIs asíncronas con Python y FastAPI, tiempo real con WebSockets, PostgreSQL, tests y CI. Me especializo en LLMs, RAG, agentes (LangChain, LangGraph, MCP) y evaluación en el bootcamp de AI Engineering de Neoland. Siete años en el sector sanitario me aportan rigor para evaluar resultados, conocimiento del dominio salud y facilidad para explicar lo técnico. Busco mi primer puesto como AI Engineer.</p>
+  <p>AI Engineer junior con base sólida de backend (Python/FastAPI, TypeScript/Fastify, PostgreSQL, tests y CI) y experiencia construyendo con agentes de IA: Claude Code y desarrollo dirigido por especificaciones. Me especializo en LLMs, RAG, agentes y evaluación en el bootcamp de AI Engineering de Neoland. Siete años en el sector sanitario me aportan rigor para evaluar resultados y conocimiento del dominio salud.</p>
 
   <h2>Formación en IA</h2>
   <div class="item">
@@ -73,32 +73,39 @@
 
   <h2>Competencias técnicas</h2>
   <dl class="skills">
-    <dt>IA generativa</dt><dd>LLMs, prompt engineering, RAG, bases vectoriales, LangChain, LangGraph, agentes, MCP, evals <span class="learn">(en formación)</span></dd>
-    <dt>Backend</dt><dd>Python, FastAPI, Pydantic, asyncio, WebSockets, REST, JWT</dd>
-    <dt>Datos</dt><dd>PostgreSQL, SQLAlchemy, Alembic, asyncpg, SQL, MongoDB</dd>
-    <dt>Calidad y DevOps</dt><dd>pytest, GitHub Actions, Docker, Git</dd>
-    <dt>Otros</dt><dd>TypeScript, React Native, Java, Kotlin</dd>
+    <dt>IA generativa</dt><dd>LLMs, prompting, RAG, bases vectoriales, LangChain, LangGraph, agentes, MCP, evals <span class="learn">(en formación)</span></dd>
+    <dt>Backend</dt><dd>Python, FastAPI, Pydantic, TypeScript, Fastify, zod, WebSockets, REST</dd>
+    <dt>Datos</dt><dd>PostgreSQL, SQLAlchemy, Drizzle, Alembic, SQL, MongoDB</dd>
+    <dt>Calidad y DevOps</dt><dd>pytest, Vitest, GitHub Actions, Docker, Railway, Git</dd>
+    <dt>Desarrollo con IA</dt><dd>Claude Code, desarrollo dirigido por especificaciones, revisión de código generado</dd>
+    <dt>Otros</dt><dd>React Native, Expo, Java, Kotlin</dd>
   </dl>
 
   <h2>Proyectos</h2>
   <div class="item">
+    <div class="row"><span class="item-title">Smartnomic — finanzas del hogar, en producción (Android y web)</span><span class="date">github.com/RaulSantamaria1994/Smartnomic</span></div>
+    <ul>
+      <li>Construida con <strong>agentes de IA</strong> (Claude Code) y desarrollo dirigido por especificaciones: 12 funcionalidades.</li>
+      <li>Monorepo <strong>TypeScript</strong>: API <strong>Fastify</strong>, zod, PostgreSQL con Drizzle, WebSockets y modo sin conexión.</li>
+      <li>79 ficheros de tests con Vitest, CI contra PostgreSQL real y auditoría de seguridad; desplegada con Docker en Railway.</li>
+    </ul>
+  </div>
+  <div class="item">
     <div class="row"><span class="item-title">RPG narrativo cooperativo — backend Python en tiempo real</span><span class="date">github.com/RaulSantamaria1994/RPG</span></div>
     <ul>
-      <li>Backend asíncrono en <strong>FastAPI</strong> que guarda el estado de cada sesión y emite eventos en tiempo real por <strong>WebSockets</strong>, el mismo patrón que un asistente con LLM en <em>streaming</em>; validación con Pydantic y autenticación JWT.</li>
-      <li>Motor de reglas propio en Python (tiradas, combate, votación grupal) y contenido narrativo separado de la lógica como datos JSON.</li>
-      <li>Más de 20 suites de tests con <strong>pytest</strong> (incluida concurrencia), migraciones con Alembic y CI en GitHub Actions.</li>
+      <li>Backend asíncrono en <strong>FastAPI</strong> con estado por sesión y eventos por <strong>WebSockets</strong>, como un asistente LLM en streaming.</li>
+      <li>Más de 20 suites de tests con <strong>pytest</strong> (incluida concurrencia), Alembic y CI en GitHub Actions.</li>
     </ul>
-    <div class="stack">Python · FastAPI · WebSockets · SQLAlchemy · PostgreSQL · pytest · GitHub Actions · React Native</div>
   </div>
   <div class="item">
     <div class="row"><span class="item-title">Proyectos de IA del bootcamp</span><span class="date">en construcción</span></div>
-    <ul><li>Asistente RAG con evaluación de respuestas, agente en LangGraph con herramientas vía MCP y producto de IA end-to-end desplegado. Se publicarán en GitHub.</li></ul>
+    <ul><li>Asistente RAG con evaluación, agente LangGraph con MCP y producto final desplegado.</li></ul>
   </div>
 
   <h2>Experiencia</h2>
   <div class="item">
     <div class="row"><span><span class="item-title">Desarrollador (prácticas curriculares)</span> · <span class="item-sub">Vaelsys, Valladolid</span></span><span class="date">mar 2026 – jun 2026</span></div>
-    <ul><li>Diseño y desarrollo desde cero de una aplicación de gestión para sistemas IoT, cubriendo el ciclo completo: arquitectura, implementación y pruebas.</li></ul>
+    <ul><li>Aplicación de gestión para sistemas IoT desde cero: arquitectura, implementación y pruebas.</li></ul>
   </div>
   <div class="item">
     <div class="row"><span><span class="item-title">Óptico-Optometrista</span> · <span class="item-sub">sector sanitario · Visionlab · Óptica Zorrilla 51 · GrandVision / Óptica2000</span></span><span class="date">nov 2016 – mar 2024</span></div>
