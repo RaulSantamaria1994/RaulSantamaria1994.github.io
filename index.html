@@ -18,7 +18,9 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2318181b'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='14' fill='%23fafaf9'%3ERS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -43,6 +45,7 @@
     --text-2:#3f3f46;
     --muted:#71717a;
     --faint:#a1a1aa;
+    --soft-title:#84848c; --amber-ink:#b45309; --blue-ink:#2563eb; --green-ink:#15803d;
     --border:rgba(24,24,27,.08);
     --border-2:rgba(24,24,27,.14);
     --glass:rgba(255,255,255,.62);
@@ -69,7 +72,7 @@
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#0b0b0c; --text:#fafafa; --text-2:#d4d4d8; --muted:#a1a1aa; --faint:#71717a;
+      --bg:#0b0b0c; --text:#fafafa; --text-2:#d4d4d8; --muted:#a1a1aa; --faint:#71717a; --soft-title:#71717a; --amber-ink:#fbbf24; --blue-ink:#60a5fa; --green-ink:#4ade80;
       --border:rgba(255,255,255,.08); --border-2:rgba(255,255,255,.15);
       --glass:rgba(24,24,27,.55); --glass-2:rgba(24,24,27,.85); --panel:rgba(39,39,42,.6);
       --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 30px rgba(0,0,0,.25); --shadow-lg:0 24px 60px rgba(0,0,0,.45);
@@ -81,7 +84,7 @@
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0b0b0c; --text:#fafafa; --text-2:#d4d4d8; --muted:#a1a1aa; --faint:#71717a;
+    --bg:#0b0b0c; --text:#fafafa; --text-2:#d4d4d8; --muted:#a1a1aa; --faint:#71717a; --soft-title:#71717a; --amber-ink:#fbbf24; --blue-ink:#60a5fa; --green-ink:#4ade80;
     --border:rgba(255,255,255,.08); --border-2:rgba(255,255,255,.15);
     --glass:rgba(24,24,27,.55); --glass-2:rgba(24,24,27,.85); --panel:rgba(39,39,42,.6);
     --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 30px rgba(0,0,0,.25); --shadow-lg:0 24px 60px rgba(0,0,0,.45);
@@ -226,7 +229,7 @@
   .q:hover svg{transform:scale(1.18) rotate(-8deg);}
   .q.c1 svg{color:var(--teal);} .q.c2 svg{color:var(--green);} .q.c3 svg{color:var(--violet);} .q.c4 svg{color:var(--pink);} .q.c5 svg{color:var(--amber);}
 
-  .scroll-cue{position:absolute; bottom:18px; left:50%; translate:-50% 0; display:inline-flex; flex-direction:column; align-items:center; gap:8px; font-size:.75rem; font-weight:600; color:var(--faint); text-decoration:none;}
+  .scroll-cue{position:absolute; bottom:18px; left:50%; translate:-50% 0; display:inline-flex; flex-direction:column; align-items:center; gap:8px; font-size:.75rem; font-weight:600; color:var(--muted); text-decoration:none;}
   .scroll-cue i{width:22px; height:34px; border-radius:12px; border:1.5px solid var(--border-2); position:relative;}
   .scroll-cue i::after{content:""; position:absolute; left:50%; top:7px; width:3px; height:7px; margin-left:-1.5px; border-radius:3px; background:var(--muted); animation:cue 1.8s var(--ease) infinite;}
   @keyframes cue{0%{opacity:0; transform:translateY(-3px);} 40%{opacity:1;} 100%{opacity:0; transform:translateY(10px);}}
@@ -234,6 +237,9 @@
   /* Entrada del hero: desenfoque + subida, escalonada */
   .intro{animation:introIn 1s var(--ease) backwards;}
   @keyframes introIn{from{opacity:0; filter:blur(10px); transform:translateY(18px);} to{opacity:1; filter:blur(0); transform:none;}}
+  /* El titular y el subtítulo no pasan por opacidad 0 para no retrasar el LCP */
+  h1.intro, .hero-sub.intro{animation-name:introSlide;}
+  @keyframes introSlide{from{filter:blur(10px); transform:translateY(18px);} to{filter:blur(0); transform:none;}}
   .bg-name.intro{animation-name:nameIn; animation-duration:1.6s;}
   @keyframes nameIn{from{opacity:0; filter:blur(10px); transform:translate(-50%, 40px);} to{opacity:1; filter:blur(0); transform:translate(-50%, 0);}}
 
@@ -318,7 +324,7 @@
   .pill-label{display:inline-flex; align-items:center; gap:8px; font-size:.8rem; font-weight:700; padding:6px 13px 6px 10px; border-radius:999px; color:var(--text-2); box-shadow:var(--shadow);}
   .pill-label svg{width:16px; height:16px;}
   .sec-title{margin-top:16px; font-size:clamp(2rem, 4.4vw, 3.1rem); font-weight:800; letter-spacing:-.04em;}
-  .sec-title .soft{color:var(--faint);}
+  .sec-title .soft{color:var(--soft-title);}
   .sec-sub{margin-top:14px; color:var(--muted); font-size:1.05rem;}
   .card{border-radius:var(--r); box-shadow:var(--shadow);}
 
@@ -410,7 +416,7 @@
   .roadmap{padding:30px 34px; display:grid; grid-template-columns:1fr 1.6fr; gap:32px; border-style:dashed; border-color:var(--border-2);}
   .roadmap-head h3{font-size:1.4rem; font-weight:800; margin-top:12px;}
   .roadmap-head p{color:var(--text-2); margin-top:10px; font-size:.95rem;}
-  .badge{display:inline-flex; align-items:center; gap:7px; font-size:.75rem; font-weight:700; padding:4px 10px; border-radius:999px; background:var(--panel); color:var(--amber);}
+  .badge{display:inline-flex; align-items:center; gap:7px; font-size:.75rem; font-weight:700; padding:4px 10px; border-radius:999px; background:var(--panel); color:var(--amber-ink);}
   .badge::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor; animation:blink 1.4s ease-in-out infinite;}
   @keyframes blink{50%{opacity:.25;}}
   .roadmap-list{list-style:none; margin:0; padding:0; display:grid; gap:10px; counter-reset:rm;}
@@ -458,10 +464,10 @@
   .edu-list{display:grid; gap:12px;}
   .edu-item{display:grid; grid-template-columns:110px 1fr; gap:18px; padding:22px 24px;}
   .edu-year{font-size:.8rem; font-weight:700; color:var(--muted); padding-top:2px;}
-  .edu-item.dev .edu-year{color:var(--blue);}
+  .edu-item.dev .edu-year{color:var(--blue-ink);}
   .edu-title{font-weight:800; font-size:1.02rem;}
   .edu-org{color:var(--muted); font-size:.9rem; font-weight:600; margin-top:2px;}
-  .edu-badge{display:inline-block; vertical-align:2px; margin-left:6px; font-size:.68rem; font-weight:800; color:var(--green); background:var(--panel); padding:2px 8px; border-radius:999px;}
+  .edu-badge{display:inline-block; vertical-align:2px; margin-left:6px; font-size:.68rem; font-weight:800; color:var(--green-ink); background:var(--panel); padding:2px 8px; border-radius:999px;}
   .edu-modules{list-style:none; counter-reset:mod; margin:14px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px;}
   .edu-modules li{counter-increment:mod; font-size:.8rem; font-weight:600; color:var(--text-2); background:var(--panel); border-radius:999px; padding:4px 11px 4px 6px; display:inline-flex; align-items:center; gap:6px;}
   .edu-modules li::before{content:counter(mod); width:18px; height:18px; border-radius:50%; display:grid; place-items:center; font-size:.66rem; font-weight:800; background:var(--glass-2); color:var(--blue);}
@@ -598,7 +604,7 @@
   <div class="hero" id="inicio">
     <div class="bg-name intro" aria-hidden="true" style="animation-delay:.2s">Santamaría</div>
 
-    <a class="logo intro" href="#inicio" aria-label="Raúl Santamaría" style="animation-delay:.05s">RS</a>
+    <a class="logo intro" href="#inicio" aria-label="RS · Raúl Santamaría, inicio" style="animation-delay:.05s">RS</a>
     <p class="hello intro" style="animation-delay:.15s">Hola, soy Raúl <span class="wave" aria-hidden="true">👋</span></p>
     <h1 class="intro" style="animation-delay:.25s"><span class="grad">AI Engineer</span></h1>
     <p class="hero-sub intro" style="animation-delay:.35s">Junior · <b>LLMs, RAG y agentes</b> sobre backend Python y TypeScript. Construyo con agentes de IA. Antes, siete años como óptico‑optometrista.</p>
@@ -641,7 +647,7 @@
       </button>
     </div>
 
-    <a class="scroll-cue intro" href="#ficha" style="animation-delay:1.2s"><i></i><span>o sigue bajando</span></a>
+    <a class="scroll-cue intro" href="#ficha" aria-label="o sigue bajando: ficha rápida" style="animation-delay:1.2s"><i></i><span>o sigue bajando</span></a>
   </div>
 
   <!-- ============ FICHA ============ -->
