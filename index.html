@@ -860,15 +860,17 @@
             <div class="project-top">
               <div class="project-icon" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/></svg></div>
               <div>
-                <h3 class="project-title">Gestión de sistemas IoT</h3>
-                <div class="project-type">Proyecto profesional · Vaelsys · 2026</div>
+                <h3 class="project-title">App de gestión IoT</h3>
+                <div class="project-type">Proyecto profesional · Vaelsys · prácticas 2026</div>
               </div>
             </div>
-            <p class="project-desc">Durante mis prácticas en Vaelsys diseñé y desarrollé desde cero una aplicación de gestión para sus sistemas IoT, cubriendo el ciclo completo de un producto real dentro de un equipo profesional.</p>
+            <p class="project-desc">En mis prácticas en Vaelsys, empresa de analítica de vídeo con IA para seguridad, desarrollé una app móvil para gestionar sus dispositivos IoT: ver su estado, descubrirlos en la red y comunicarse con ellos de forma segura.</p>
             <ul class="project-points">
-              <li><strong>Arquitectura</strong>: análisis de requisitos con el equipo y diseño de la solución desde una página en blanco.</li>
-              <li><strong>Implementación</strong> de la aplicación y su integración con los dispositivos y servicios existentes.</li>
-              <li><strong>Pruebas</strong> y entrega dentro de los plazos de las prácticas.</li>
+              <li><strong>App móvil con React Native y Expo</strong>, diseñada desde cero y entregada dentro del plazo de las prácticas.</li>
+              <li><strong>Seguridad</strong>: autenticación biométrica y almacenamiento cifrado de credenciales en el dispositivo.</li>
+              <li><strong>Tiempo real</strong>: monitorización del estado de los dispositivos y escaneo de la red local.</li>
+              <li><strong>Proxy inverso en Node.js</strong> para comunicar la app con los dispositivos.</li>
+              <li><strong>Distribución</strong>: compilación y reparto de la app con EAS Build.</li>
             </ul>
             <div class="project-links">
               <span class="private-note"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Código propiedad de la empresa · detalles en entrevista</span>
@@ -880,8 +882,27 @@
               <dl class="meta-list">
                 <div class="meta-row"><dt>Rol</dt><dd>Desarrollador en prácticas</dd></div>
                 <div class="meta-row"><dt>Periodo</dt><dd>Mar — Jun 2026</dd></div>
-                <div class="meta-row"><dt>Alcance</dt><dd>Diseño → pruebas</dd></div>
+                <div class="meta-row"><dt>Plataforma</dt><dd>Móvil (Expo)</dd></div>
               </dl>
+            </div>
+            <div>
+              <div class="side-label">Arquitectura</div>
+              <figure class="arch" aria-label="Arquitectura de la app de gestión IoT: app React Native con biometría y credenciales cifradas que se comunica por un proxy inverso en Node.js con los dispositivos IoT; EAS Build compila y distribuye la app">
+                <div class="arch-row">
+                  <div class="arch-node l-client"><span class="arch-layer">App móvil</span><strong>React Native + Expo</strong><small>biometría · credenciales cifradas</small></div>
+                  <div class="arch-hlink rev" aria-hidden="true"></div>
+                  <div class="arch-node l-ext"><span class="arch-layer">Distribución</span><strong>EAS Build</strong></div>
+                </div>
+                <div class="arch-link bi"><i class="up" aria-hidden="true"></i><span>estado en tiempo real</span></div>
+                <div class="arch-node l-api"><span class="arch-layer">Servidor</span><strong>Proxy inverso · Node.js</strong><div class="arch-sub"><span>comunicación con dispositivos</span></div></div>
+                <div class="arch-link"><span>red local · escaneo</span></div>
+                <div class="arch-node l-data"><span class="arch-layer">Dispositivos</span><strong>Sistemas IoT</strong><small>Vaelsys</small></div>
+                <div class="arch-legend"><span><i style="background:var(--terracotta)"></i>Cliente</span><span><i style="background:var(--ochre)"></i>Servidor</span><span><i style="background:var(--sage)"></i>Dispositivos</span></div>
+              </figure>
+            </div>
+            <div>
+              <div class="side-label">Stack</div>
+              <div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Node.js</span><span class="tag">Autenticación biométrica</span><span class="tag">Almacenamiento seguro</span><span class="tag">EAS Build</span><span class="tag">IoT</span></div>
             </div>
           </aside>
         </article>
@@ -918,9 +939,9 @@
           <div class="tl-date">MAR 2026 — JUN 2026</div>
           <div>
             <h3 class="tl-role">Desarrollador · Prácticas curriculares</h3>
-            <div class="tl-org">Vaelsys · Valladolid</div>
-            <p class="tl-desc">Diseño y desarrollo desde cero de una aplicación de gestión para sistemas IoT, cubriendo todo el ciclo: arquitectura, implementación y pruebas.</p>
-            <div class="tags"><span class="tag">Desarrollo de software</span><span class="tag">IoT</span></div>
+            <div class="tl-org">Vaelsys · analítica de vídeo con IA · Valladolid</div>
+            <p class="tl-desc">App móvil de gestión IoT con React Native y Expo: autenticación biométrica, credenciales cifradas, monitorización y escaneo de red en tiempo real, y un proxy inverso en Node.js para comunicarse con los dispositivos.</p>
+            <div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Node.js</span><span class="tag">IoT</span></div>
           </div>
         </div>
         <div class="tl-group reveal">Sector sanitario · óptica, optometría y audiología · 2016 — 2024</div>
@@ -993,7 +1014,7 @@
       <div class="edu-grid">
         <div class="edu-list">
           <div class="edu-item dev card glass reveal">
-            <div class="edu-year">Oct 2026 — hoy</div>
+            <div class="edu-year">Oct — Dic 2026</div>
             <div>
               <div class="edu-title">Bootcamp de Inteligencia Artificial · AI Engineering <span class="edu-badge">En curso</span></div>
               <div class="edu-org"><a href="https://neoland.es/bootcamps/inteligencia-artificial/" target="_blank" rel="noopener">Neoland</a> · 9 módulos</div>
@@ -1180,7 +1201,7 @@
       extra: '<div class="cards">' +
         `<article class="cc glass"><div class="cc-icon" style="color:var(--teal)">${ic.home}</div><h4>Smartnomic</h4><div class="meta">TypeScript · Fastify · Expo · en producción</div><p>Finanzas del hogar para Android y web: tiempo real entre miembros, modo sin conexión y 79 ficheros de tests. Hecha con desarrollo dirigido por especificaciones y Claude Code.</p><div class="row"><a class="btn btn-small btn-dark" href="${GITHUB}/Smartnomic" target="_blank" rel="noopener">${ic.code}Código</a><a class="btn btn-small" href="https://smartnomicserver-production.up.railway.app/" target="_blank" rel="noopener">${ic.ext}App</a></div></article>` +
         `<article class="cc glass"><div class="cc-icon" style="color:var(--blue)">${ic.hex}</div><h4>RPG narrativo cooperativo</h4><div class="meta">FastAPI · WebSockets · React Native</div><p>Juego de rol multijugador en el móvil: salas en tiempo real, motor d20 propio, historias en JSON y más de 20 suites de tests.</p><div class="row"><a class="btn btn-small btn-dark" href="${GITHUB}/RPG" target="_blank" rel="noopener">${ic.code}Código</a><button class="btn btn-small" type="button" data-goto="#proyectos">Detalle${ic.arrow}</button></div></article>` +
-        `<article class="cc glass"><div class="cc-icon" style="color:var(--green)">${ic.chip}</div><h4>Gestión de sistemas IoT</h4><div class="meta">Vaelsys · prácticas · 2026</div><p>Aplicación de gestión diseñada y desarrollada desde cero: requisitos, arquitectura, implementación y pruebas.</p><div class="row"><button class="btn btn-small" type="button" data-goto="#proyectos">Detalle${ic.arrow}</button></div></article>` +
+        `<article class="cc glass"><div class="cc-icon" style="color:var(--green)">${ic.chip}</div><h4>App de gestión IoT</h4><div class="meta">Vaelsys · prácticas · 2026</div><p>App móvil con React Native y Expo: biometría, credenciales cifradas, monitorización en tiempo real y un proxy inverso en Node.js.</p><div class="row"><button class="btn btn-small" type="button" data-goto="#proyectos">Detalle${ic.arrow}</button></div></article>` +
         `<article class="cc glass" style="border-style:dashed"><div class="cc-icon" style="color:var(--amber)">${ic.spark}</div><h4>Proyectos de IA</h4><div class="meta">En construcción · bootcamp</div><p>Asistente RAG con evaluación, agente con herramientas (LangGraph + MCP) y un producto de IA end‑to‑end.</p><div class="row"><button class="btn btn-small" type="button" data-goto="#proyectos">Hoja de ruta${ic.arrow}</button></div></article>` +
         '</div>'
     }),
@@ -1199,7 +1220,7 @@
       text: '<p>Un cambio de instrumento, no de mentalidad: <strong>de evaluar una vista a evaluar un modelo</strong>.</p>',
       extra: '<div class="mini-tl">' +
         '<div class="it glass"><span>2026</span><div><strong>Smartnomic · proyecto propio</strong><small>App en producción construida con agentes de IA</small></div></div>' +
-        '<div class="it glass"><span>2026</span><div><strong>Desarrollador · prácticas</strong><small>Vaelsys · app de gestión IoT desde cero</small></div></div>' +
+        '<div class="it glass"><span>2026</span><div><strong>Desarrollador · prácticas</strong><small>Vaelsys · app móvil de gestión IoT (React Native)</small></div></div>' +
         '<div class="it glass"><span>2024 — 2026</span><div><strong>CFGS Desarrollo de Aplicaciones Multiplataforma</strong><small>IES Julián Marías</small></div></div>' +
         '<div class="it glass"><span>2016 — 2024</span><div><strong>Óptico‑optometrista</strong><small>Visionlab · Óptica Zorrilla · GrandVision / Óptica2000</small></div></div>' +
         '</div><div style="margin-top:12px">' + suggest([['porque','🔬 ¿Por qué el cambio?'],['formacion','🎓 Formación']]) + '</div>'
